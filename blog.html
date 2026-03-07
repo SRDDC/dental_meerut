@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & Testimonials | Jain Dental Clinic Meerut</title>
+  <meta name="description" content="Read patient testimonials and see pre/post smile transformations at Jain Dental Clinic Meerut." />
+  <meta name="keywords" content="Dental Testimonials Meerut, Smile Makeover Results, Before After Dental" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="logo-wrap" href="index.html"><img src="Logo.jpeg" alt="Jain Dental Clinic Logo" /><div><strong>Jain Dental Clinic</strong><span>Advanced Dental Care, Meerut</span></div></a>
+      <button class="menu-btn" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li class="dropdown"><a href="services.html">SERVICES</a>
+          <ul class="dropdown-menu">
+            <li><a href="general-dentistry.html">General Dentistry</a></li>
+            <li><a href="restorative-dentistry.html">Restorative Dentistry</a></li>
+            <li><a href="cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
+            <li><a href="prosthodontics.html">Prosthodontics</a></li>
+            <li><a href="orthodontics.html">Orthodontics</a></li>
+            <li><a href="periodontics.html">Periodontics</a></li>
+            <li><a href="endodontics.html">Endodontics</a></li>
+            <li><a href="oral-surgery.html">Oral Surgery</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a class="active" href="blog.html">BLOG</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="top-appointment">
+    <div class="container">
+      <form class="appointment-bar appointment-form" aria-label="Book Appointment Form">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="tel" name="phone" placeholder="Phone / WhatsApp" required />
+        <input type="date" name="date" required />
+        <select name="service" required>
+          <option value="">Choose Service</option>
+          <option>General Dentistry</option>
+          <option>Cosmetic Dentistry</option>
+          <option>Dental Implants</option>
+          <option>Root Canal</option>
+        </select>
+        <button class="btn-primary" type="submit">Book Appointment</button>
+        <div class="alert full-row" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="service-hero">
+    <div class="container">
+      <p class="breadcrumb">Home / Blog</p>
+      <h1>Testimonials & Smile Stories</h1>
+      <p class="section-lead">Patient feedback and treatment transformations from our clinic journey.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Patient Testimonials</h2>
+      <div class="grid-3">
+        <article class="testimonial"><p>“Very professional team and painless treatment. The doctors explained every step clearly.”</p><p><strong>— Priya G.</strong></p></article>
+        <article class="testimonial"><p>“Best experience for my family. Clean clinic, polite staff, and excellent results.”</p><p><strong>— Rakesh S.</strong></p></article>
+        <article class="testimonial"><p>“Highly recommend for smile correction. Comfortable process and great confidence boost.”</p><p><strong>— Aditi M.</strong></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#f6f6f7;">
+    <div class="container">
+      <h2>Pre & Post Treatment Images</h2>
+      <p class="note">Shared treatment visuals from your Blog folder.</p>
+      <div class="grid-2 blog-photos">
+        <figure class="card">
+          <img src="Blog/IMG_6349.jpeg" alt="Pre and post dental treatment result 1" loading="lazy" />
+          <figcaption>Smile improvement case study 1</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="Blog/IMG_6219.jpeg" alt="Pre and post dental treatment result 2" loading="lazy" />
+          <figcaption>Smile improvement case study 2</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container"><p>© <span id="year"></span> Jain Dental Clinic, Meerut. All Rights Reserved.</p></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

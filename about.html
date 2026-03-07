@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Jain Dental Clinic Meerut</title>
+  <meta name="description" content="Meet the experienced doctors at Jain Dental Clinic Meerut: Dr. Shilpi Jain, Dr. Sachin, Dr. Anuja Kaushik, and Dr. Mohit Sharma." />
+  <meta name="keywords" content="Dental Doctors Meerut, Dr Shilpi Jain, Dr Sachin, Dr Anuja Kaushik, Dr Mohit Sharma" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="logo-wrap" href="index.html" aria-label="Jain Dental Clinic Home">
+        <img src="Logo.jpeg" alt="Jain Dental Clinic Logo" />
+        <div><strong>Jain Dental Clinic</strong><span>Advanced Dental Care, Meerut</span></div>
+      </a>
+      <button class="menu-btn" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a class="active" href="about.html">ABOUT</a></li>
+        <li class="dropdown"><a href="services.html">SERVICES</a>
+          <ul class="dropdown-menu">
+            <li><a href="general-dentistry.html">General Dentistry</a></li>
+            <li><a href="restorative-dentistry.html">Restorative Dentistry</a></li>
+            <li><a href="cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
+            <li><a href="prosthodontics.html">Prosthodontics</a></li>
+            <li><a href="orthodontics.html">Orthodontics</a></li>
+            <li><a href="periodontics.html">Periodontics</a></li>
+            <li><a href="endodontics.html">Endodontics</a></li>
+            <li><a href="oral-surgery.html">Oral Surgery</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="blog.html">BLOG</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="top-appointment">
+    <div class="container">
+      <form class="appointment-bar appointment-form" aria-label="Book Appointment Form">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="tel" name="phone" placeholder="Phone / WhatsApp" required />
+        <input type="date" name="date" required />
+        <select name="service" required>
+          <option value="">Choose Service</option>
+          <option>General Dentistry</option>
+          <option>Cosmetic Dentistry</option>
+          <option>Dental Implants</option>
+          <option>Root Canal</option>
+        </select>
+        <button class="btn-primary" type="submit">Book Appointment</button>
+        <div class="alert full-row" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="service-hero">
+    <div class="container">
+      <p class="breadcrumb">Home / About</p>
+      <h1>About Our Dental Team</h1>
+      <p class="section-lead">Our clinic is built on clinical excellence, ethics, and a patient-first approach. We provide comprehensive treatment plans tailored to each smile.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Our Doctors</h2>
+      <div class="grid-4">
+        <article class="doctor">
+          <span class="badge">Lead Consultant</span>
+          <h3>Dr. Shilpi Jain</h3>
+          <p>Known for detail-oriented treatment planning and a comforting approach in aesthetic and family dentistry.</p>
+        </article>
+        <article class="doctor">
+          <span class="badge">Senior Dentist</span>
+          <h3>Dr. Sachin</h3>
+          <p>Focused on restorative and preventive procedures with strong emphasis on long-term oral function.</p>
+        </article>
+        <article class="doctor">
+          <span class="badge">Specialist Dentist</span>
+          <h3>Dr. Anuja Kaushik</h3>
+          <p>Experienced in structured and patient-specific treatment journeys for complex dental concerns.</p>
+        </article>
+        <article class="doctor">
+          <span class="badge">Clinical Expert</span>
+          <h3>Dr. Mohit Sharma</h3>
+          <p>Delivers precision-focused dental care using contemporary techniques and modern clinical protocols.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#f6f6f7;">
+    <div class="container grid-2">
+      <article class="card">
+        <h3>Our Vision</h3>
+        <p>To make world-class dental care accessible in Meerut through transparency, trust, and consistent outcomes.</p>
+      </article>
+      <article class="card">
+        <h3>Our Promise</h3>
+        <p>Safety, hygiene, clear communication, and treatment recommendations aligned with your health goals.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container"><p>© <span id="year"></span> Jain Dental Clinic, Meerut. All Rights Reserved.</p></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

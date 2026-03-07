@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Detail | Jain Dental Clinic Meerut</title>
+  <meta name="description" content="Detailed dental service information at Jain Dental Clinic Meerut." />
+  <meta name="keywords" content="Dental Services Meerut, Root Canal, Teeth Whitening, Dental Implants, Braces" />
+  <meta property="og:title" content="Service Detail | Jain Dental Clinic Meerut" />
+  <meta property="og:description" content="Detailed treatment information for dental services at Jain Dental Clinic, Meerut." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="Logo.jpeg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="logo-wrap" href="index.html"><img src="Logo.jpeg" alt="Jain Dental Clinic Logo" /><div><strong>Jain Dental Clinic</strong><span>Advanced Dental Care, Meerut</span></div></a>
+      <button class="menu-btn" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li class="dropdown"><a class="active" href="services.html">SERVICES</a>
+          <ul class="dropdown-menu">
+            <li><a href="general-dentistry.html">General Dentistry</a></li>
+            <li><a href="restorative-dentistry.html">Restorative Dentistry</a></li>
+            <li><a href="cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
+            <li><a href="prosthodontics.html">Prosthodontics</a></li>
+            <li><a href="orthodontics.html">Orthodontics</a></li>
+            <li><a href="periodontics.html">Periodontics</a></li>
+            <li><a href="endodontics.html">Endodontics</a></li>
+            <li><a href="oral-surgery.html">Oral Surgery</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="blog.html">BLOG</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="top-appointment">
+    <div class="container">
+      <form class="appointment-bar appointment-form" aria-label="Book Appointment Form">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="tel" name="phone" placeholder="Phone / WhatsApp" required />
+        <input type="date" name="date" required />
+        <select name="service" required>
+          <option value="">Choose Service</option>
+          <option>General Dentistry</option>
+          <option>Cosmetic Dentistry</option>
+          <option>Dental Implants</option>
+          <option>Root Canal</option>
+        </select>
+        <button class="btn-primary" type="submit">Book Appointment</button>
+        <div class="alert full-row" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="service-hero">
+    <div class="container">
+      <p class="breadcrumb">Home / Services / <span id="serviceBreadcrumb">Service</span></p>
+      <h1 id="serviceTitle">Dental Service</h1>
+      <p class="section-lead" id="serviceIntro">Personalized and evidence-based treatment for your oral health needs.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <article class="card">
+        <h2>About This Service</h2>
+        <p id="serviceContent">Our team evaluates your concern and creates a treatment plan aligned with comfort, function, and long-term outcomes.</p>
+      </article>
+      <article class="card">
+        <h2>Book a Consultation</h2>
+        <p>Call <a href="tel:+919536579683">9536579683</a> or connect on <a href="https://wa.me/919536579683" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        <p class="note">Address: 205 Dharam puri Near sadar police station, opposite Adhaar Shila School, Meerut, Uttar Pradesh 250001</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container"><p>© <span id="year"></span> Jain Dental Clinic, Meerut. All Rights Reserved.</p></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const serviceData = {
+      'dental-cleaning': { title: 'Dental Cleaning', text: 'Routine cleaning removes plaque and tartar, helps prevent gum disease, and keeps breath fresh.' },
+      'tooth-colored-fillings': { title: 'Tooth Colored Fillings', text: 'Composite restorations repair cavities with a natural shade match for a seamless look.' },
+      'emergency-dentistry': { title: 'Emergency Dentistry', text: 'Immediate care for sudden tooth pain, trauma, swelling, chipped teeth, and urgent infections.' },
+      'full-mouth-reconstruction': { title: 'Full Mouth Reconstruction', text: 'Comprehensive treatment to restore function, bite harmony, and aesthetics in complex cases.' },
+      'dental-crowns': { title: 'Dental Crowns', text: 'Custom crowns protect weakened teeth and restore shape, function, and strength.' },
+      'dental-bridges': { title: 'Dental Bridges', text: 'Bridges replace missing teeth by anchoring to nearby teeth for stability and smile continuity.' },
+      'smile-makeover': { title: 'Smile Makeover', text: 'A tailored plan combining cosmetic procedures to improve smile balance, color, and symmetry.' },
+      'bleaching': { title: 'Bleaching', text: 'Professional bleaching brightens stained teeth safely under clinical supervision.' },
+      'teeth-whitening': { title: 'Teeth Whitening', text: 'Fast and effective whitening for noticeable shade improvement and confidence boost.' },
+      'veneers': { title: 'Veneers', text: 'Thin custom shells that improve color, contour, minor spacing, and smile aesthetics.' },
+      'dental-bonding': { title: 'Dental Bonding', text: 'Tooth-colored resin repairs chips, gaps, and minor imperfections in a conservative way.' },
+      'crowns': { title: 'Crowns', text: 'Prosthodontic crown solutions designed for durability, fit, and natural appearance.' },
+      'bridge': { title: 'Bridge', text: 'Prosthetic bridge options to restore missing teeth and support chewing efficiency.' },
+      'dentures': { title: 'Dentures', text: 'Partial and complete dentures crafted for comfort, support, and functional confidence.' },
+      'braces': { title: 'Braces', text: 'Fixed orthodontic treatment to gradually align teeth and correct bite issues.' },
+      'invisalign': { title: 'Invisalign', text: 'Clear aligner therapy for discreet and removable orthodontic correction.' },
+      'dental-implants': { title: 'Dental Implants', text: 'Implants provide strong, long-lasting replacement for missing teeth and support bone health.' },
+      'scaling': { title: 'Scaling', text: 'Deep cleaning to remove deposits below the gum line and reduce inflammation.' },
+      'soft-tissue-grafting': { title: 'Soft Tissue Grafting', text: 'Grafting helps cover exposed roots and improve gum support and aesthetics.' },
+      'bone-grafting': { title: 'Bone Grafting', text: 'Bone augmentation supports implants and improves jawbone foundation where needed.' },
+      'root-canals': { title: 'Root Canals', text: 'Root canal therapy removes infection, relieves pain, and preserves your natural tooth.' },
+      'tooth-extraction': { title: 'Tooth Extraction', text: 'Safe extraction procedures with post-care guidance for smooth recovery.' },
+      'wisdom-tooth-extraction': { title: 'Wisdom Tooth Extraction', text: 'Planned removal of impacted or problematic wisdom teeth to prevent complications.' },
+      'oral-maxillofacial-surgery': { title: 'Oral and Maxillofacial Surgery', text: 'Specialized management for complex oral surgical concerns and facial-jaw conditions.' },
+      'tmj': { title: 'TMJ', text: 'Evaluation and treatment options for jaw joint pain, clicking, and restricted movement.' }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get('service') || 'dental-cleaning';
+    const selected = serviceData[key] || { title: 'Dental Service', text: 'Comprehensive dental care customized for your condition and comfort.' };
+
+    document.getElementById('serviceTitle').textContent = selected.title;
+    document.getElementById('serviceBreadcrumb').textContent = selected.title;
+    document.getElementById('serviceIntro').textContent = selected.text;
+    document.getElementById('serviceContent').textContent = selected.text;
+    document.title = `${selected.title} | Jain Dental Clinic Meerut`;
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', `${selected.title} at Jain Dental Clinic Meerut. ${selected.text}`);
+    }
+
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', `${selected.title}, Dental Clinic Meerut, Jain Dental Clinic`);
+    }
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', `${selected.title} | Jain Dental Clinic Meerut`);
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', selected.text);
+    }
+  </script>
+</body>
+</html>
