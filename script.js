@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const clinicName = 'Shree Rishabh Dev Dental Care And Implant Centre';
   const oldClinicName = 'Jain Dental Clinic';
   const clinicTagline = '|IMPLANTS| ALIGNERS| BRACES| ROOT CANAL TREATMENT | CROWNS';
+  const whatsappNumber = '919759555205';
+  const clinicEmail = 'info@srddc.com';
   const serviceCategories = [
     {
       title: 'General Dentistry',
@@ -236,8 +238,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const alertBox = form.querySelector('.alert');
     form.addEventListener('submit', (event) => {
       event.preventDefault();
+
+      const fields = [];
+      form.querySelectorAll('input, select, textarea').forEach((input) => {
+        const value = (input.value || '').trim();
+        if (!value) {
+          return;
+        }
+        const label = input.name || input.placeholder || 'Field';
+        fields.push(`${label}: ${value}`);
+      });
+
+      const formType = form.classList.contains('appointment-form') ? 'Appointment Request' : 'Contact Request';
+      const messageText = [`${formType} - ${clinicName}`, ...fields].join('\n');
+      const encodedMessage = encodeURIComponent(messageText);
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      const emailSubject = encodeURIComponent(`${formType} - ${clinicName}`);
+      const emailUrl = `mailto:${clinicEmail}?subject=${emailSubject}&body=${encodedMessage}`;
+
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      setTimeout(() => {
+        window.location.href = emailUrl;
+      }, 250);
+
       if (alertBox) {
-        alertBox.textContent = 'Thank you! Your request has been received. We will call you shortly.';
+        alertBox.textContent = 'Opening WhatsApp and email draft with your details. Please tap Send in both to complete submission.';
       }
       form.reset();
     });
