@@ -353,13 +353,15 @@ a:hover {
 
 .glow-circle-item p {
   margin: 0.55rem 0 0;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-text);
-  font-size: 0.93rem;
+  font-size: 1rem;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  letter-spacing: 0.2px;
 }
 
 .glow-circle {
-  width: min(125px, 100%);
+  width: min(140px, 100%);
   aspect-ratio: 1 / 1;
   border-radius: 999px;
   border: 2px solid #f7a6c0;
@@ -376,7 +378,8 @@ a:hover {
 }
 
 .circle-icon {
-  font-size: 2rem;
+  font-size: 3.2rem;
+  line-height: 1;
 }
 
 .glow-circle:hover,
