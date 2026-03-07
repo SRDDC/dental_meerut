@@ -67,84 +67,91 @@
 
   <section class="section">
     <div class="container">
-      <div class="services-toggle-wrap">
-        <button id="servicesToggle" class="btn-primary" type="button" aria-expanded="false" aria-controls="servicesCategories">Show Service Categories</button>
+      <div class="services-category-buttons" id="serviceCategoryButtons">
+        <button class="service-category-btn active" type="button" data-category="general">General Dentistry</button>
+        <button class="service-category-btn" type="button" data-category="restorative">Restorative Dentistry</button>
+        <button class="service-category-btn" type="button" data-category="cosmetic">Cosmetic Dentistry</button>
+        <button class="service-category-btn" type="button" data-category="prosthodontics">Prosthodontics</button>
+        <button class="service-category-btn" type="button" data-category="orthodontics">Orthodontics</button>
+        <button class="service-category-btn" type="button" data-category="periodontics">Periodontics</button>
+        <button class="service-category-btn" type="button" data-category="endodontics">Endodontics</button>
+        <button class="service-category-btn" type="button" data-category="oral-surgery">Oral Surgery</button>
       </div>
-      <div id="servicesCategories" class="cards-grid hidden">
-      <article class="service-card">
-        <button class="category-toggle" type="button" aria-expanded="false">1) General Dentistry</button>
-        <p><a href="general-dentistry.html">Open General Dentistry page</a></p>
-        <ul class="subcategory-list hidden">
+
+      <div class="services-subcategory-panel" id="servicesSubcategoryPanel">
+        <article class="subcategory-group" data-category="general">
+          <h3><a href="general-dentistry.html">General Dentistry</a></h3>
+          <ul>
           <li><a href="service-detail.html?service=dental-cleaning">Dental Cleaning</a></li>
           <li><a href="service-detail.html?service=tooth-colored-fillings">Tooth Colored Fillings</a></li>
           <li><a href="service-detail.html?service=emergency-dentistry">Emergency Dentistry</a></li>
-        </ul>
-      </article>
-      <article class="service-card">
-        <button class="category-toggle" type="button" aria-expanded="false">2) Restorative Dentistry</button>
-        <p><a href="restorative-dentistry.html">Open Restorative Dentistry page</a></p>
-        <ul class="subcategory-list hidden">
+          </ul>
+        </article>
+
+        <article class="subcategory-group hidden" data-category="restorative">
+          <h3><a href="restorative-dentistry.html">Restorative Dentistry</a></h3>
+          <ul>
           <li><a href="service-detail.html?service=full-mouth-reconstruction">Full Mouth Reconstruction</a></li>
           <li><a href="service-detail.html?service=dental-crowns">Dental Crowns</a></li>
           <li><a href="service-detail.html?service=dental-bridges">Dental Bridges</a></li>
-        </ul>
-      </article>
-      <article class="service-card">
-        <button class="category-toggle" type="button" aria-expanded="false">3) Cosmetic Dentistry</button>
-        <p><a href="cosmetic-dentistry.html">Open Cosmetic Dentistry page</a></p>
-        <ul class="subcategory-list hidden">
+          </ul>
+        </article>
+
+        <article class="subcategory-group hidden" data-category="cosmetic">
+          <h3><a href="cosmetic-dentistry.html">Cosmetic Dentistry</a></h3>
+          <ul>
           <li><a href="service-detail.html?service=smile-makeover">Smile Makeover</a></li>
           <li><a href="service-detail.html?service=bleaching">Bleaching</a></li>
           <li><a href="service-detail.html?service=teeth-whitening">Teeth Whitening</a></li>
           <li><a href="service-detail.html?service=veneers">Veneers</a></li>
           <li><a href="service-detail.html?service=dental-bonding">Dental Bonding</a></li>
-        </ul>
-      </article>
-      <article class="service-card">
-        <button class="category-toggle" type="button" aria-expanded="false">4) Prosthodontics</button>
-        <p><a href="prosthodontics.html">Open Prosthodontics page</a></p>
-        <ul class="subcategory-list hidden">
+          </ul>
+        </article>
+
+        <article class="subcategory-group hidden" data-category="prosthodontics">
+          <h3><a href="prosthodontics.html">Prosthodontics</a></h3>
+          <ul>
           <li><a href="service-detail.html?service=crowns">Crowns</a></li>
           <li><a href="service-detail.html?service=bridge">Bridge</a></li>
           <li><a href="service-detail.html?service=dentures">Dentures</a></li>
-        </ul>
-      </article>
-      <article class="service-card">
-        <button class="category-toggle" type="button" aria-expanded="false">5) Orthodontics</button>
-        <p><a href="orthodontics.html">Open Orthodontics page</a></p>
-        <ul class="subcategory-list hidden">
+          </ul>
+        </article>
+
+        <article class="subcategory-group hidden" data-category="orthodontics">
+          <h3><a href="orthodontics.html">Orthodontics</a></h3>
+          <ul>
           <li><a href="service-detail.html?service=braces">Braces</a></li>
           <li><a href="service-detail.html?service=invisalign">Invisalign</a></li>
-        </ul>
-      </article>
-      <article class="service-card">
-        <button class="category-toggle" type="button" aria-expanded="false">6) Periodontics</button>
-        <p><a href="periodontics.html">Open Periodontics page</a></p>
-        <ul class="subcategory-list hidden">
+          </ul>
+        </article>
+
+        <article class="subcategory-group hidden" data-category="periodontics">
+          <h3><a href="periodontics.html">Periodontics</a></h3>
+          <ul>
           <li><a href="service-detail.html?service=dental-implants">Dental Implants</a></li>
           <li><a href="service-detail.html?service=scaling">Scaling</a></li>
           <li><a href="service-detail.html?service=soft-tissue-grafting">Soft Tissue Grafting</a></li>
           <li><a href="service-detail.html?service=bone-grafting">Bone Grafting</a></li>
-        </ul>
-      </article>
-      <article class="service-card">
-        <button class="category-toggle" type="button" aria-expanded="false">7) Endodontics</button>
-        <p><a href="endodontics.html">Open Endodontics page</a></p>
-        <ul class="subcategory-list hidden">
+          </ul>
+        </article>
+
+        <article class="subcategory-group hidden" data-category="endodontics">
+          <h3><a href="endodontics.html">Endodontics</a></h3>
+          <ul>
           <li><a href="service-detail.html?service=root-canals">Root Canals</a></li>
           <li><a href="service-detail.html?service=dental-implants">Dental Implants</a></li>
-        </ul>
-      </article>
-      <article class="service-card">
-        <button class="category-toggle" type="button" aria-expanded="false">8) Oral Surgery</button>
-        <p><a href="oral-surgery.html">Open Oral Surgery page</a></p>
-        <ul class="subcategory-list hidden">
+          </ul>
+        </article>
+
+        <article class="subcategory-group hidden" data-category="oral-surgery">
+          <h3><a href="oral-surgery.html">Oral Surgery</a></h3>
+          <ul>
           <li><a href="service-detail.html?service=tooth-extraction">Tooth Extraction</a></li>
           <li><a href="service-detail.html?service=wisdom-tooth-extraction">Wisdom Tooth Extraction</a></li>
           <li><a href="service-detail.html?service=oral-maxillofacial-surgery">Oral and Maxillofacial Surgery</a></li>
           <li><a href="service-detail.html?service=tmj">TMJ</a></li>
-        </ul>
-      </article>
+          </ul>
+        </article>
       </div>
     </div>
   </section>

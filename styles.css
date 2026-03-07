@@ -136,6 +136,50 @@ a:hover {
   color: var(--color-primary);
 }
 
+.dropdown-menu .has-submenu {
+  position: relative;
+}
+
+.submenu-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submenu-toggle:hover {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.nested-dropdown {
+  list-style: none;
+  position: absolute;
+  top: -0.4rem;
+  left: calc(100% + 0.35rem);
+  min-width: 230px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  margin: 0;
+  padding: 0.4rem;
+  display: none;
+}
+
+.has-submenu:hover .nested-dropdown,
+.has-submenu.open .nested-dropdown {
+  display: block;
+}
+
 .menu-btn {
   display: none;
   background: none;
@@ -216,6 +260,46 @@ a:hover {
 .hero p {
   color: var(--color-muted);
   margin: 0.45rem 0;
+}
+
+.glow-circles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.glow-circle {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  border: 2px solid #f7a6c0;
+  background: radial-gradient(circle at 30% 25%, #fff8fb 0%, #ffe8f0 58%, #ffd6e5 100%);
+  color: #83182f;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.circle-icon {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+.glow-circle:hover,
+.glow-circle:focus-visible,
+.glow-circle.active {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #f06292;
+  box-shadow: 0 0 12px rgba(240, 98, 146, 0.65), 0 0 24px rgba(240, 98, 146, 0.45);
+  outline: none;
 }
 
 .achievements {
@@ -301,6 +385,53 @@ a:hover {
 .service-card ul {
   margin: 0.55rem 0 0;
   padding-left: 1.1rem;
+}
+
+.services-category-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.service-category-btn {
+  border: 1px solid #f3a1be;
+  border-radius: 999px;
+  background: #fff2f7;
+  color: #8a1a36;
+  padding: 0.65rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.service-category-btn:hover,
+.service-category-btn.active {
+  background: #ffd9e8;
+  box-shadow: 0 0 10px rgba(240, 98, 146, 0.6), 0 0 20px rgba(240, 98, 146, 0.4);
+  transform: translateY(-1px);
+}
+
+.services-subcategory-panel {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 1rem;
+}
+
+.subcategory-group h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.subcategory-group ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.subcategory-group li {
+  margin: 0.35rem 0;
 }
 
 .services-toggle-wrap {
@@ -452,11 +583,27 @@ a:hover {
     padding-left: 0;
   }
 
+  .nested-dropdown {
+    position: static;
+    display: none;
+    border: none;
+    box-shadow: none;
+    padding-left: 0.5rem;
+    min-width: 0;
+    background: transparent;
+  }
+
+  .has-submenu.open .nested-dropdown {
+    display: block;
+  }
+
   .hero-grid,
   .grid-4,
   .grid-3,
   .grid-2,
   .achievements,
+  .glow-circles-grid,
+  .services-category-buttons,
   .appointment-bar,
   .contact-grid,
   .form-grid {
