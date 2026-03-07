@@ -59,6 +59,7 @@ a:hover {
   align-items: center;
   gap: 0.75rem;
   color: var(--color-text);
+  min-width: 0;
 }
 
 .logo-wrap img {
@@ -71,6 +72,9 @@ a:hover {
 .logo-wrap strong {
   display: block;
   font-size: 1rem;
+  line-height: 1.2;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .logo-wrap span {
@@ -119,7 +123,7 @@ a:hover {
   display: none;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown.open .dropdown-menu {
   display: block;
 }
 
@@ -140,17 +144,36 @@ a:hover {
   position: relative;
 }
 
-.submenu-toggle {
-  width: 100%;
+.submenu-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.category-link {
+  flex: 1;
+  display: block;
+  color: var(--color-text);
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+}
+
+.category-link:hover {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.submenu-toggle {
+  width: 34px;
+  height: 34px;
   border: none;
   background: transparent;
   color: var(--color-text);
   font: inherit;
-  text-align: left;
-  padding: 0.45rem 0.6rem;
+  text-align: center;
+  padding: 0;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -175,7 +198,6 @@ a:hover {
   display: none;
 }
 
-.has-submenu:hover .nested-dropdown,
 .has-submenu.open .nested-dropdown {
   display: block;
 }
@@ -203,6 +225,62 @@ a:hover {
   padding: 0.55rem 0.9rem;
   border-radius: 8px;
   white-space: nowrap;
+}
+
+.appointment-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 1rem;
+}
+
+.appointment-modal.open {
+  display: flex;
+}
+
+.appointment-modal-dialog {
+  width: min(520px, 100%);
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  padding: 1.1rem;
+  position: relative;
+}
+
+.appointment-modal-dialog h2 {
+  margin: 0 0 0.8rem;
+}
+
+.appointment-modal-close {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.45rem;
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-muted);
+}
+
+.appointment-modal-form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.appointment-modal-form input,
+.appointment-modal-form select,
+.appointment-modal-form button {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font: inherit;
 }
 
 .appointment-bar {
@@ -264,24 +342,33 @@ a:hover {
 
 .glow-circles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
   margin-top: 1.2rem;
 }
 
+.glow-circle-item {
+  text-align: center;
+}
+
+.glow-circle-item p {
+  margin: 0.55rem 0 0;
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: 0.93rem;
+}
+
 .glow-circle {
-  width: 100%;
+  width: min(125px, 100%);
   aspect-ratio: 1 / 1;
   border-radius: 999px;
   border: 2px solid #f7a6c0;
-  background: radial-gradient(circle at 30% 25%, #fff8fb 0%, #ffe8f0 58%, #ffd6e5 100%);
+  background: radial-gradient(circle at 35% 30%, #ffeef5 0%, #ffc8dc 55%, #f59abc 100%);
   color: #83182f;
-  padding: 0.8rem;
+  padding: 0.6rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -289,8 +376,7 @@ a:hover {
 }
 
 .circle-icon {
-  font-size: 1.1rem;
-  margin-bottom: 0.35rem;
+  font-size: 2rem;
 }
 
 .glow-circle:hover,
@@ -577,10 +663,15 @@ a:hover {
 
   .dropdown-menu {
     position: static;
-    display: block;
+    display: none;
     border: none;
     box-shadow: none;
     padding-left: 0;
+    margin-top: 0.25rem;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
   }
 
   .nested-dropdown {
@@ -612,6 +703,12 @@ a:hover {
 
   .logo-wrap span {
     display: none;
+  }
+
+  .logo-wrap strong {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    max-width: 170px;
   }
 
   .appointment-toggle-btn {

@@ -126,28 +126,94 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const appointmentSection = document.querySelector('.top-appointment');
   const navbar = document.querySelector('.navbar');
+  let appointmentModal = null;
 
-  if (appointmentSection && navbar && !document.querySelector('.appointment-toggle-btn')) {
-    appointmentSection.classList.remove('open');
+  const closeAppointmentModal = () => {
+    if (!appointmentModal) {
+      return;
+    }
+    appointmentModal.classList.remove('open');
+    appointmentModal.setAttribute('aria-hidden', 'true');
+  };
+
+  const openAppointmentModal = () => {
+    if (!appointmentModal) {
+      return;
+    }
+    appointmentModal.classList.add('open');
+    appointmentModal.setAttribute('aria-hidden', 'false');
+    const firstInput = appointmentModal.querySelector('input, select');
+    if (firstInput) {
+      firstInput.focus();
+    }
+  };
+
+  const ensureAppointmentModal = () => {
+    if (appointmentModal) {
+      return;
+    }
+
+    const modalWrapper = document.createElement('div');
+    modalWrapper.className = 'appointment-modal';
+    modalWrapper.id = 'appointment-modal';
+    modalWrapper.setAttribute('aria-hidden', 'true');
+
+    modalWrapper.innerHTML = `
+      <div class="appointment-modal-dialog" role="dialog" aria-modal="true" aria-label="Book Appointment Form">
+        <button type="button" class="appointment-modal-close" aria-label="Close appointment form">×</button>
+        <h2>Book Appointment</h2>
+        <form class="appointment-modal-form appointment-form">
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="tel" name="phone" placeholder="Phone / WhatsApp" required />
+          <input type="date" name="date" required />
+          <select name="service" required>
+            <option value="">Choose Service</option>
+            <option>General Dentistry</option>
+            <option>Cosmetic Dentistry</option>
+            <option>Dental Implants</option>
+            <option>Root Canal</option>
+          </select>
+          <button class="btn-primary" type="submit">Send Request</button>
+          <div class="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    `;
+
+    document.body.appendChild(modalWrapper);
+    appointmentModal = modalWrapper;
+
+    const closeBtn = appointmentModal.querySelector('.appointment-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeAppointmentModal);
+    }
+
+    appointmentModal.addEventListener('click', (event) => {
+      if (event.target === appointmentModal) {
+        closeAppointmentModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && appointmentModal.classList.contains('open')) {
+        closeAppointmentModal();
+      }
+    });
+  };
+
+  if (navbar && !document.querySelector('.appointment-toggle-btn')) {
+    ensureAppointmentModal();
 
     const appointmentToggleBtn = document.createElement('button');
     appointmentToggleBtn.type = 'button';
     appointmentToggleBtn.className = 'btn-primary appointment-toggle-btn';
     appointmentToggleBtn.textContent = 'Book Appointment';
     appointmentToggleBtn.setAttribute('aria-expanded', 'false');
-    appointmentToggleBtn.setAttribute('aria-controls', 'appointment-panel');
-
-    appointmentSection.id = 'appointment-panel';
+    appointmentToggleBtn.setAttribute('aria-controls', 'appointment-modal');
 
     appointmentToggleBtn.addEventListener('click', () => {
-      const isOpen = appointmentSection.classList.toggle('open');
-      appointmentToggleBtn.textContent = isOpen ? 'Close Appointment Form' : 'Book Appointment';
-      appointmentToggleBtn.setAttribute('aria-expanded', String(isOpen));
-      if (isOpen) {
-        appointmentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      openAppointmentModal();
+      appointmentToggleBtn.setAttribute('aria-expanded', 'true');
     });
 
     navbar.appendChild(appointmentToggleBtn);
@@ -170,18 +236,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return `
           <li class="has-submenu">
-            <button class="submenu-toggle" type="button" aria-expanded="false">
-              <span>${category.title}</span>
-              <span>▸</span>
-            </button>
+            <div class="submenu-row">
+              <a class="category-link" href="${category.href}">${category.title}</a>
+              <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Toggle ${category.title} subcategories">▾</button>
+            </div>
             <ul class="nested-dropdown">
-              <li><a href="${category.href}">Open ${category.title}</a></li>
               ${subcategoryMarkup}
             </ul>
           </li>
         `;
       })
       .join('');
+
+    serviceLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      const isOpen = dropdown.classList.toggle('open');
+
+      servicesNavDropdowns.forEach((item) => {
+        if (item !== dropdown) {
+          item.classList.remove('open');
+        }
+      });
+
+      serviceLink.setAttribute('aria-expanded', String(isOpen));
+    });
 
     dropdownMenu.querySelectorAll('.submenu-toggle').forEach((submenuToggle) => {
       submenuToggle.addEventListener('click', (event) => {
@@ -204,6 +282,14 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       });
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    servicesNavDropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+      }
     });
   });
 
@@ -265,6 +351,12 @@ document.addEventListener('DOMContentLoaded', () => {
         alertBox.textContent = 'Opening WhatsApp and email draft with your details. Please tap Send in both to complete submission.';
       }
       form.reset();
+
+      if (form.classList.contains('appointment-modal-form')) {
+        setTimeout(() => {
+          closeAppointmentModal();
+        }, 500);
+      }
     });
   });
 });
