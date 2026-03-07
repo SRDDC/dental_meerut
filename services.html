@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | Jain Dental Clinic Meerut</title>
-  <meta name="description" content="Explore complete dental services at Jain Dental Clinic Meerut across General, Restorative, Cosmetic, Orthodontic, Endodontic and Surgical care." />
+  <title>Services | Shree Rishabh Dev Dental Care And Implant Centre Meerut</title>
+  <meta name="description" content="Explore complete dental services at Shree Rishabh Dev Dental Care And Implant Centre Meerut across General, Restorative, Cosmetic, Orthodontic, Endodontic and Surgical care." />
   <meta name="keywords" content="Dental Services Meerut, General Dentistry, Cosmetic Dentistry, Root Canal, Braces, Oral Surgery" />
-  <meta property="og:title" content="Dental Services | Jain Dental Clinic Meerut" />
+  <meta property="og:title" content="Dental Services | Shree Rishabh Dev Dental Care And Implant Centre Meerut" />
   <meta property="og:description" content="General, restorative, cosmetic, orthodontic, periodontic, endodontic, prosthodontic, and oral surgery care in Meerut." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="Logo.jpeg" />
@@ -15,7 +15,7 @@
 <body>
   <header class="site-header">
     <div class="container navbar">
-      <a class="logo-wrap" href="index.html"><img src="Logo.jpeg" alt="Jain Dental Clinic Logo" /><div><strong>Jain Dental Clinic</strong><span>Advanced Dental Care, Meerut</span></div></a>
+      <a class="logo-wrap" href="index.html"><img src="Logo.jpeg" alt="Shree Rishabh Dev Dental Care And Implant Centre Logo" /><div><strong>Shree Rishabh Dev Dental Care And Implant Centre</strong><span>Advanced Dental Care, Meerut</span></div></a>
       <button class="menu-btn" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
         <li><a href="index.html">HOME</a></li>
@@ -66,26 +66,33 @@
   </section>
 
   <section class="section">
-    <div class="container cards-grid">
+    <div class="container">
+      <div class="services-toggle-wrap">
+        <button id="servicesToggle" class="btn-primary" type="button" aria-expanded="false" aria-controls="servicesCategories">Show Service Categories</button>
+      </div>
+      <div id="servicesCategories" class="cards-grid hidden">
       <article class="service-card">
-        <h3><a href="general-dentistry.html">1) General Dentistry</a></h3>
-        <ul>
+        <button class="category-toggle" type="button" aria-expanded="false">1) General Dentistry</button>
+        <p><a href="general-dentistry.html">Open General Dentistry page</a></p>
+        <ul class="subcategory-list hidden">
           <li><a href="service-detail.html?service=dental-cleaning">Dental Cleaning</a></li>
           <li><a href="service-detail.html?service=tooth-colored-fillings">Tooth Colored Fillings</a></li>
           <li><a href="service-detail.html?service=emergency-dentistry">Emergency Dentistry</a></li>
         </ul>
       </article>
       <article class="service-card">
-        <h3><a href="restorative-dentistry.html">2) Restorative Dentistry</a></h3>
-        <ul>
+        <button class="category-toggle" type="button" aria-expanded="false">2) Restorative Dentistry</button>
+        <p><a href="restorative-dentistry.html">Open Restorative Dentistry page</a></p>
+        <ul class="subcategory-list hidden">
           <li><a href="service-detail.html?service=full-mouth-reconstruction">Full Mouth Reconstruction</a></li>
           <li><a href="service-detail.html?service=dental-crowns">Dental Crowns</a></li>
           <li><a href="service-detail.html?service=dental-bridges">Dental Bridges</a></li>
         </ul>
       </article>
       <article class="service-card">
-        <h3><a href="cosmetic-dentistry.html">3) Cosmetic Dentistry</a></h3>
-        <ul>
+        <button class="category-toggle" type="button" aria-expanded="false">3) Cosmetic Dentistry</button>
+        <p><a href="cosmetic-dentistry.html">Open Cosmetic Dentistry page</a></p>
+        <ul class="subcategory-list hidden">
           <li><a href="service-detail.html?service=smile-makeover">Smile Makeover</a></li>
           <li><a href="service-detail.html?service=bleaching">Bleaching</a></li>
           <li><a href="service-detail.html?service=teeth-whitening">Teeth Whitening</a></li>
@@ -94,23 +101,26 @@
         </ul>
       </article>
       <article class="service-card">
-        <h3><a href="prosthodontics.html">4) Prosthodontics</a></h3>
-        <ul>
+        <button class="category-toggle" type="button" aria-expanded="false">4) Prosthodontics</button>
+        <p><a href="prosthodontics.html">Open Prosthodontics page</a></p>
+        <ul class="subcategory-list hidden">
           <li><a href="service-detail.html?service=crowns">Crowns</a></li>
           <li><a href="service-detail.html?service=bridge">Bridge</a></li>
           <li><a href="service-detail.html?service=dentures">Dentures</a></li>
         </ul>
       </article>
       <article class="service-card">
-        <h3><a href="orthodontics.html">5) Orthodontics</a></h3>
-        <ul>
+        <button class="category-toggle" type="button" aria-expanded="false">5) Orthodontics</button>
+        <p><a href="orthodontics.html">Open Orthodontics page</a></p>
+        <ul class="subcategory-list hidden">
           <li><a href="service-detail.html?service=braces">Braces</a></li>
           <li><a href="service-detail.html?service=invisalign">Invisalign</a></li>
         </ul>
       </article>
       <article class="service-card">
-        <h3><a href="periodontics.html">6) Periodontics</a></h3>
-        <ul>
+        <button class="category-toggle" type="button" aria-expanded="false">6) Periodontics</button>
+        <p><a href="periodontics.html">Open Periodontics page</a></p>
+        <ul class="subcategory-list hidden">
           <li><a href="service-detail.html?service=dental-implants">Dental Implants</a></li>
           <li><a href="service-detail.html?service=scaling">Scaling</a></li>
           <li><a href="service-detail.html?service=soft-tissue-grafting">Soft Tissue Grafting</a></li>
@@ -118,26 +128,29 @@
         </ul>
       </article>
       <article class="service-card">
-        <h3><a href="endodontics.html">7) Endodontics</a></h3>
-        <ul>
+        <button class="category-toggle" type="button" aria-expanded="false">7) Endodontics</button>
+        <p><a href="endodontics.html">Open Endodontics page</a></p>
+        <ul class="subcategory-list hidden">
           <li><a href="service-detail.html?service=root-canals">Root Canals</a></li>
           <li><a href="service-detail.html?service=dental-implants">Dental Implants</a></li>
         </ul>
       </article>
       <article class="service-card">
-        <h3><a href="oral-surgery.html">8) Oral Surgery</a></h3>
-        <ul>
+        <button class="category-toggle" type="button" aria-expanded="false">8) Oral Surgery</button>
+        <p><a href="oral-surgery.html">Open Oral Surgery page</a></p>
+        <ul class="subcategory-list hidden">
           <li><a href="service-detail.html?service=tooth-extraction">Tooth Extraction</a></li>
           <li><a href="service-detail.html?service=wisdom-tooth-extraction">Wisdom Tooth Extraction</a></li>
           <li><a href="service-detail.html?service=oral-maxillofacial-surgery">Oral and Maxillofacial Surgery</a></li>
           <li><a href="service-detail.html?service=tmj">TMJ</a></li>
         </ul>
       </article>
+      </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container"><p>© <span id="year"></span> Jain Dental Clinic, Meerut. All Rights Reserved.</p></div>
+    <div class="container"><p>© <span id="year"></span> Shree Rishabh Dev Dental Care And Implant Centre, Meerut. All Rights Reserved.</p></div>
   </footer>
   <script src="script.js"></script>
 </body>

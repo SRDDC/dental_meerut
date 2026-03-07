@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Service Detail | Jain Dental Clinic Meerut</title>
-  <meta name="description" content="Detailed dental service information at Jain Dental Clinic Meerut." />
+  <title>Service Detail | Shree Rishabh Dev Dental Care And Implant Centre Meerut</title>
+  <meta name="description" content="Detailed dental service information at Shree Rishabh Dev Dental Care And Implant Centre Meerut." />
   <meta name="keywords" content="Dental Services Meerut, Root Canal, Teeth Whitening, Dental Implants, Braces" />
-  <meta property="og:title" content="Service Detail | Jain Dental Clinic Meerut" />
-  <meta property="og:description" content="Detailed treatment information for dental services at Jain Dental Clinic, Meerut." />
+  <meta property="og:title" content="Service Detail | Shree Rishabh Dev Dental Care And Implant Centre Meerut" />
+  <meta property="og:description" content="Detailed treatment information for dental services at Shree Rishabh Dev Dental Care And Implant Centre, Meerut." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="Logo.jpeg" />
   <link rel="stylesheet" href="styles.css" />
@@ -15,7 +15,7 @@
 <body>
   <header class="site-header">
     <div class="container navbar">
-      <a class="logo-wrap" href="index.html"><img src="Logo.jpeg" alt="Jain Dental Clinic Logo" /><div><strong>Jain Dental Clinic</strong><span>Advanced Dental Care, Meerut</span></div></a>
+      <a class="logo-wrap" href="index.html"><img src="Logo.jpeg" alt="Shree Rishabh Dev Dental Care And Implant Centre Logo" /><div><strong>Shree Rishabh Dev Dental Care And Implant Centre</strong><span>Advanced Dental Care, Meerut</span></div></a>
       <button class="menu-btn" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
         <li><a href="index.html">HOME</a></li>
@@ -80,7 +80,7 @@
   </section>
 
   <footer class="footer">
-    <div class="container"><p>© <span id="year"></span> Jain Dental Clinic, Meerut. All Rights Reserved.</p></div>
+    <div class="container"><p>© <span id="year"></span> Shree Rishabh Dev Dental Care And Implant Centre, Meerut. All Rights Reserved.</p></div>
   </footer>
 
   <script src="script.js"></script>
@@ -121,21 +121,21 @@
     document.getElementById('serviceBreadcrumb').textContent = selected.title;
     document.getElementById('serviceIntro').textContent = selected.text;
     document.getElementById('serviceContent').textContent = selected.text;
-    document.title = `${selected.title} | Jain Dental Clinic Meerut`;
+    document.title = `${selected.title} | Shree Rishabh Dev Dental Care And Implant Centre Meerut`;
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', `${selected.title} at Jain Dental Clinic Meerut. ${selected.text}`);
+      metaDescription.setAttribute('content', `${selected.title} at Shree Rishabh Dev Dental Care And Implant Centre Meerut. ${selected.text}`);
     }
 
     const metaKeywords = document.querySelector('meta[name="keywords"]');
     if (metaKeywords) {
-      metaKeywords.setAttribute('content', `${selected.title}, Dental Clinic Meerut, Jain Dental Clinic`);
+      metaKeywords.setAttribute('content', `${selected.title}, Dental Clinic Meerut, Shree Rishabh Dev Dental Care And Implant Centre`);
     }
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', `${selected.title} | Jain Dental Clinic Meerut`);
+      ogTitle.setAttribute('content', `${selected.title} | Shree Rishabh Dev Dental Care And Implant Centre Meerut`);
     }
 
     const ogDescription = document.querySelector('meta[property="og:description"]');

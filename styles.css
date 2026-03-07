@@ -146,8 +146,19 @@ a:hover {
 }
 
 .top-appointment {
+  display: none;
   border-bottom: 1px solid var(--color-border);
   background: linear-gradient(120deg, #fff0f3, #ffffff);
+}
+
+.top-appointment.open {
+  display: block;
+}
+
+.appointment-toggle-btn {
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 
 .appointment-bar {
@@ -292,6 +303,35 @@ a:hover {
   padding-left: 1.1rem;
 }
 
+.services-toggle-wrap {
+  margin-bottom: 1rem;
+}
+
+.category-toggle {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--color-text);
+  padding: 0.55rem 0.7rem;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.category-toggle:hover {
+  border-color: var(--color-primary);
+}
+
+.subcategory-list {
+  margin-top: 0.65rem;
+}
+
+.hidden {
+  display: none;
+}
+
 .doctor h3,
 .service-card h3,
 .feature h3,
@@ -425,5 +465,10 @@ a:hover {
 
   .logo-wrap span {
     display: none;
+  }
+
+  .appointment-toggle-btn {
+    order: 3;
+    width: 100%;
   }
 }
