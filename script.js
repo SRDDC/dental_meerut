@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
 
   if (menuBtn && navLinks) {
+    menuBtn.innerHTML = '<span aria-hidden="true">☰</span><span class="menu-label">Menu</span>';
     menuBtn.addEventListener('click', () => {
       navLinks.classList.toggle('show');
     });
