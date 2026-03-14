@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Doctor card glow effect on click/focus
+    document.querySelectorAll('.doctor-glow').forEach(card => {
+      card.addEventListener('click', function() {
+        document.querySelectorAll('.doctor-glow').forEach(c => c.classList.remove('glow'));
+        this.classList.add('glow');
+      });
+      card.addEventListener('focus', function() {
+        document.querySelectorAll('.doctor-glow').forEach(c => c.classList.remove('glow'));
+        this.classList.add('glow');
+      });
+      card.addEventListener('blur', function() {
+        this.classList.remove('glow');
+      });
+    });
   const clinicName = 'Shree Rishabh Dev Dental Care And Implant Centre';
   const oldClinicName = 'Jain Dental Clinic';
   const clinicTagline = '|IMPLANTS| ALIGNERS| BRACES| ROOT CANAL TREATMENT | CROWNS';
@@ -333,82 +347,6 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
         const label = input.name || input.placeholder || 'Field';
-      // --- Review Slideshow Logic ---
-      const reviewData = {
-        implants: [
-          { name: "Amit S.", rating: 5, text: "Got my dental implants done here. The process was smooth and painless. Highly recommended!", date: "Feb 2024" },
-          { name: "Priya R.", rating: 5, text: "Excellent care and attention to detail. My implant feels just like a natural tooth.", date: "Jan 2024" },
-          { name: "Rohit K.", rating: 5, text: "Professional team and modern technology. Very satisfied with my dental implant.", date: "Dec 2023" },
-          { name: "Sunita M.", rating: 5, text: "Dr. Sachiin explained everything about the implant procedure. The results are fantastic!", date: "Nov 2023" },
-          { name: "Vikas T.", rating: 5, text: "Best place for dental implants in Meerut. Thank you for restoring my smile!", date: "Oct 2023" }
-        ],
-        extraction: [
-          { name: "Neha J.", rating: 5, text: "Tooth extraction was quick and almost painless. The staff is very caring.", date: "Feb 2024" },
-          { name: "Sandeep P.", rating: 5, text: "I was nervous about my extraction, but the doctors made me feel comfortable.", date: "Jan 2024" },
-          { name: "Ritu S.", rating: 5, text: "Very hygienic and professional. My extraction healed perfectly.", date: "Dec 2023" },
-          { name: "Manoj D.", rating: 5, text: "Best dental clinic for extractions. Highly skilled team.", date: "Nov 2023" },
-          { name: "Kavita L.", rating: 5, text: "Thank you for making my extraction experience stress-free!", date: "Oct 2023" }
-        ],
-        wisdom: [
-          { name: "Deepak S.", rating: 5, text: "Wisdom tooth removal was done with utmost care. No swelling or pain after.", date: "Feb 2024" },
-          { name: "Megha V.", rating: 5, text: "Doctors are very gentle and explained the procedure well.", date: "Jan 2024" },
-          { name: "Rakesh B.", rating: 5, text: "Smooth experience for my wisdom tooth extraction. Clinic is very clean.", date: "Dec 2023" },
-          { name: "Shalini G.", rating: 5, text: "Highly recommend for wisdom tooth issues. Excellent post-op care.", date: "Nov 2023" },
-          { name: "Tarun K.", rating: 5, text: "No pain, no complications. Best dental team for wisdom teeth!", date: "Oct 2023" }
-        ],
-        smile: [
-          { name: "Anjali S.", rating: 5, text: "Smile restoration changed my life. I feel so much more confident now!", date: "Feb 2024" },
-          { name: "Rahul M.", rating: 5, text: "The doctors are artists! My smile looks natural and beautiful.", date: "Jan 2024" },
-          { name: "Pooja T.", rating: 5, text: "Thank you for giving me my dream smile. The process was easy and comfortable.", date: "Dec 2023" },
-          { name: "Saurabh N.", rating: 5, text: "Best clinic for smile makeovers. The results exceeded my expectations.", date: "Nov 2023" },
-          { name: "Sneha R.", rating: 5, text: "Professional, friendly, and truly skilled at smile restoration!", date: "Oct 2023" }
-        ]
-      };
-
-      let currentCategory = 'implants';
-      let currentIndex = 0;
-
-      function renderReviewCard(review) {
-        return `
-          <div class="review-card">
-            <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
-            <p class="review-text">${review.text}</p>
-            <div class="review-meta">
-              <span class="review-name">${review.name}</span>
-              <span class="review-date">${review.date}</span>
-            </div>
-          </div>
-        `;
-      }
-
-      function updateReviewSlideshow() {
-        const wrapper = document.querySelector('.review-cards-wrapper');
-        if (!wrapper) return;
-        const reviews = reviewData[currentCategory];
-        wrapper.innerHTML = renderReviewCard(reviews[currentIndex]);
-      }
-
-      // Navigation
-      document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('review-prev')) {
-          const reviews = reviewData[currentCategory];
-          currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-          updateReviewSlideshow();
-        } else if (e.target.classList.contains('review-next')) {
-          const reviews = reviewData[currentCategory];
-          currentIndex = (currentIndex + 1) % reviews.length;
-          updateReviewSlideshow();
-        } else if (e.target.classList.contains('review-category-btn')) {
-          document.querySelectorAll('.review-category-btn').forEach(btn => btn.classList.remove('active'));
-          e.target.classList.add('active');
-          currentCategory = e.target.dataset.category;
-          currentIndex = 0;
-          updateReviewSlideshow();
-        }
-      });
-
-      // Initial render
-      updateReviewSlideshow();
         fields.push(`${label}: ${value}`);
       });
 
