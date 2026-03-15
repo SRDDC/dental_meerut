@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://srddc.github.io/dental_meerut/sitemap.xml
+Sitemap: https://www.srddc.com/sitemap.xml
