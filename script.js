@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const clinicName = 'Shree Rishabh Dev Dental Care And Implant Centre';
   const oldClinicName = 'Jain Dental Clinic';
   const clinicTagline = '|IMPLANTS| ALIGNERS| BRACES| ROOT CANAL TREATMENT | CROWNS';
-  const whatsappNumber = '919759555205';
+  const contactNumber = '919536579683';
+  const whatsappNumber = contactNumber;
   const clinicEmail = 'info@srddc.com';
   const serviceCategories = [
     {
@@ -333,6 +334,99 @@ document.addEventListener('DOMContentLoaded', () => {
       circle.classList.add('active');
     });
   });
+
+  const setupFaqAccordion = () => {
+    const faqSections = document.querySelectorAll('.faq-section');
+    if (!faqSections.length) {
+      return;
+    }
+
+    faqSections.forEach((section) => {
+      const faqCards = section.querySelectorAll('.cards-grid .card');
+      faqCards.forEach((card, index) => {
+        const questionHeading = card.querySelector('h3');
+        const answerParagraph = card.querySelector('p');
+        if (!questionHeading || !answerParagraph || card.dataset.faqPrepared === 'true') {
+          return;
+        }
+
+        const questionText = questionHeading.textContent.trim();
+        const answerText = answerParagraph.textContent.trim();
+        const faqId = `faq-answer-${index + 1}`;
+
+        card.classList.add('faq-toggle-card');
+        card.innerHTML = `
+          <button type="button" class="faq-question" aria-expanded="false" aria-controls="${faqId}">${questionText}</button>
+          <p id="${faqId}" class="faq-answer">${answerText}</p>
+        `;
+
+        const questionBtn = card.querySelector('.faq-question');
+        questionBtn.addEventListener('click', () => {
+          const isOpen = card.classList.toggle('open');
+          questionBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        card.dataset.faqPrepared = 'true';
+      });
+    });
+  };
+
+  const setupAboutAccordion = () => {
+    const aboutCards = document.querySelectorAll('.grid-2 .card');
+    aboutCards.forEach((card, index) => {
+      const heading = card.querySelector('h3');
+      const content = card.querySelector('p');
+      if (!heading || !content || card.dataset.aboutPrepared === 'true') {
+        return;
+      }
+
+      const titleText = heading.textContent.trim();
+      if (titleText !== 'Our Vision' && titleText !== 'Our Promise') {
+        return;
+      }
+
+      const bodyText = content.textContent.trim();
+      const panelId = `about-panel-${index + 1}`;
+
+      card.classList.add('about-toggle-card');
+      card.innerHTML = `
+        <button type="button" class="about-toggle-btn" aria-expanded="false" aria-controls="${panelId}">${titleText}</button>
+        <p id="${panelId}" class="about-toggle-content">${bodyText}</p>
+      `;
+
+      const toggleBtn = card.querySelector('.about-toggle-btn');
+      toggleBtn.addEventListener('click', () => {
+        const isOpen = card.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      card.dataset.aboutPrepared = 'true';
+    });
+  };
+
+  const ensureFloatingActions = () => {
+    if (document.querySelector('.floating-actions')) {
+      return;
+    }
+
+    const actionsWrap = document.createElement('div');
+    actionsWrap.className = 'floating-actions';
+
+    actionsWrap.innerHTML = `
+      <a class="floating-action-btn whatsapp" href="https://wa.me/${whatsappNumber}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16.04 3C8.86 3 3.03 8.73 3.03 15.79c0 2.48.72 4.78 1.97 6.73L3 29l6.67-1.95a13.11 13.11 0 0 0 6.37 1.63h.01c7.18 0 13.01-5.73 13.01-12.79C29.06 8.73 23.23 3 16.04 3Zm0 23.57h-.01a10.87 10.87 0 0 1-5.54-1.5l-.4-.24-3.96 1.16 1.22-3.84-.26-.39a10.6 10.6 0 0 1-1.68-5.67c0-5.86 4.84-10.63 10.78-10.63 5.94 0 10.78 4.77 10.78 10.63 0 5.86-4.84 10.63-10.78 10.63Zm5.92-7.89c-.32-.16-1.89-.93-2.19-1.03-.29-.11-.5-.16-.72.16-.21.31-.82 1.03-1 1.24-.18.21-.36.24-.68.08-.32-.16-1.34-.49-2.55-1.56-.94-.83-1.58-1.86-1.76-2.17-.18-.31-.02-.48.14-.64.15-.15.32-.39.47-.58.16-.19.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.71-1.68-.98-2.31-.26-.6-.53-.52-.72-.53h-.61c-.21 0-.55.08-.84.39-.29.31-1.11 1.08-1.11 2.64 0 1.55 1.13 3.05 1.29 3.26.16.21 2.22 3.5 5.39 4.91.75.33 1.34.53 1.8.68.76.24 1.45.21 2 .13.61-.09 1.89-.77 2.16-1.52.27-.74.27-1.38.19-1.51-.08-.13-.29-.21-.61-.37Z"/></svg>
+      </a>
+      <a class="floating-action-btn call" href="tel:+${contactNumber}" aria-label="Call clinic">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+      </a>
+    `;
+
+    document.body.appendChild(actionsWrap);
+  };
+
+  setupFaqAccordion();
+  setupAboutAccordion();
+  ensureFloatingActions();
 
   const appointmentForms = document.querySelectorAll('.appointment-form, .contact-form');
   appointmentForms.forEach((form) => {
