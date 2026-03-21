@@ -438,13 +438,15 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   gap: 0;
   margin-top: 1.2rem;
 }
 
 .glow-circle-item {
-  width: 170px;
-  margin-left: -22px;
+  flex: 0 0 176px;
+  width: 176px;
+  margin-left: -14px;
   text-align: center;
 }
 
@@ -453,7 +455,7 @@ a:hover {
 }
 
 .glow-circle-item:nth-child(n + 5) {
-  margin-top: -16px;
+  margin-top: -10px;
 }
 
 .glow-circle-item p {
@@ -466,8 +468,8 @@ a:hover {
 }
 
 .glow-circle {
-  width: min(140px, 100%);
-  aspect-ratio: 1 / 1;
+  width: 140px;
+  height: 140px;
   border-radius: 999px;
   border: 2px solid #f7a6c0;
   background: radial-gradient(circle at 35% 30%, #ffeef5 0%, #ffc8dc 55%, #f59abc 100%);
