@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   const clinicName = 'Shree Rishabh Dev Dental Care And Implant Centre';
   const oldClinicName = 'Jain Dental Clinic';
-  const clinicTagline = '|IMPLANTS| ALIGNERS| BRACES| ROOT CANAL TREATMENT | CROWNS';
+  const clinicTagline = '';
   const contactNumber = '919536579683';
   const whatsappNumber = contactNumber;
   const clinicEmail = 'info@srddc.com';
