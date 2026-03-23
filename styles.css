@@ -220,6 +220,11 @@ a:hover {
   display: block;
 }
 
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
 .dropdown-menu li a {
   display: block;
   padding: 0.45rem 0.6rem;
@@ -651,8 +656,8 @@ a:hover {
 }
 
 .floating-action-btn {
-  width: 52px;
-  height: 52px;
+  width: 62px;
+  height: 62px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -664,8 +669,8 @@ a:hover {
 }
 
 .floating-action-btn svg {
-  width: 23px;
-  height: 23px;
+  width: 28px;
+  height: 28px;
   fill: currentColor;
 }
 
@@ -713,6 +718,18 @@ a:hover {
 
 .contact-action-icon.call {
   background: #cc2249;
+}
+
+.contact-action-icon.whatsapp,
+.contact-action-icon.call {
+  width: 66px;
+  height: 66px;
+}
+
+.contact-action-icon.whatsapp svg,
+.contact-action-icon.call svg {
+  width: 28px;
+  height: 28px;
 }
 
 .contact-action-icon.mail {
@@ -996,8 +1013,25 @@ a:hover {
   }
 
   .floating-action-btn {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .floating-action-btn svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .contact-action-icon.whatsapp,
+  .contact-action-icon.call {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-action-icon.whatsapp svg,
+  .contact-action-icon.call svg {
+    width: 26px;
+    height: 26px;
   }
 
   .logo-wrap span {

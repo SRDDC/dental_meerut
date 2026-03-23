@@ -265,16 +265,24 @@ document.addEventListener('DOMContentLoaded', () => {
       .join('');
 
     serviceLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      const isOpen = dropdown.classList.toggle('open');
+      const isMobileMenu = window.matchMedia('(max-width: 760px)').matches;
 
-      servicesNavDropdowns.forEach((item) => {
-        if (item !== dropdown) {
-          item.classList.remove('open');
-        }
-      });
+      if (!isMobileMenu) {
+        return;
+      }
 
-      serviceLink.setAttribute('aria-expanded', String(isOpen));
+      if (!dropdown.classList.contains('open')) {
+        event.preventDefault();
+
+        servicesNavDropdowns.forEach((item) => {
+          if (item !== dropdown) {
+            item.classList.remove('open');
+          }
+        });
+
+        dropdown.classList.add('open');
+        serviceLink.setAttribute('aria-expanded', 'true');
+      }
     });
 
     dropdownMenu.querySelectorAll('.submenu-toggle').forEach((submenuToggle) => {
