@@ -441,7 +441,7 @@ a:hover {
 
 .glow-circles-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(100px, 1fr));
+  grid-template-columns: repeat(9, minmax(90px, 1fr));
   gap: 1rem;
   justify-items: center;
   margin-top: 1.2rem;
@@ -449,7 +449,7 @@ a:hover {
 
 .glow-circle-item {
   width: 100%;
-  max-width: 176px;
+  max-width: 164px;
   text-align: center;
   animation: circlePop 0.35s ease both;
 }
@@ -466,19 +466,19 @@ a:hover {
   margin: 0.55rem 0 0;
   font-weight: 800;
   color: var(--color-text);
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   letter-spacing: 0.2px;
 }
 
 .glow-circle {
-  width: 140px;
-  height: 140px;
+  width: 128px;
+  height: 128px;
   border-radius: 999px;
   border: 2px solid #f7a6c0;
   background: radial-gradient(circle at 35% 30%, #ffeef5 0%, #ffc8dc 55%, #f59abc 100%);
   color: #83182f;
-  padding: 0.6rem;
+  padding: 0.55rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -486,27 +486,27 @@ a:hover {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
 .circle-icon {
-  font-size: 3.2rem;
+  font-size: 3rem;
   line-height: 1;
 }
 
 .glow-circle:hover,
 .glow-circle:focus-visible,
 .glow-circle.active {
-  transform: translateY(-4px) scale(1.1);
-  border-color: #f06292;
-  box-shadow: 0 0 20px rgba(240, 98, 146, 0.8), 0 0 40px rgba(240, 98, 146, 0.6);
+  transform: translateY(-6px) scale(1.2);
+  border-color: #d81f57;
+  box-shadow: 0 0 28px rgba(216, 31, 87, 0.9), 0 0 50px rgba(216, 31, 87, 0.6);
   outline: none;
 }
 
 @keyframes circlePop {
   from {
     opacity: 0;
-    transform: translateY(12px) scale(0.95);
+    transform: translateY(12px) scale(0.92);
   }
   to {
     opacity: 1;
