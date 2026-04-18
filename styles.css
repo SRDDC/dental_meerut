@@ -689,12 +689,14 @@ a:hover {
   margin: 0;
   overflow: hidden;
   border-radius: 12px;
+  aspect-ratio: 1;
 }
 
 .case-photo img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
   transition: transform 0.25s ease;
 }
 
