@@ -440,23 +440,20 @@ a:hover {
 }
 
 .glow-circles-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
+  gap: 1rem;
+  justify-items: center;
   margin-top: 1.2rem;
 }
 
 .glow-circle-item {
-  flex: 0 0 176px;
   width: 176px;
-  margin-left: -14px;
   text-align: center;
 }
 
 .glow-circle-item:nth-child(4n + 1) {
-  margin-left: 0;
+  /* Remove the margin reset */
 }
 
 .glow-circle-item:nth-child(n + 5) {
@@ -498,9 +495,9 @@ a:hover {
 .glow-circle:hover,
 .glow-circle:focus-visible,
 .glow-circle.active {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-4px) scale(1.1);
   border-color: #f06292;
-  box-shadow: 0 0 12px rgba(240, 98, 146, 0.65), 0 0 24px rgba(240, 98, 146, 0.45);
+  box-shadow: 0 0 20px rgba(240, 98, 146, 0.8), 0 0 40px rgba(240, 98, 146, 0.6);
   outline: none;
 }
 

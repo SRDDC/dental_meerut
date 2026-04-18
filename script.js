@@ -13,6 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
         this.classList.remove('glow');
       });
     });
+
+    // Glow circle click effect
+    document.querySelectorAll('.glow-circle').forEach(circle => {
+      circle.addEventListener('click', function() {
+        document.querySelectorAll('.glow-circle').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
   const clinicName = 'Shree Rishabh Dev Dental Care And Implant Centre';
   const oldClinicName = 'Jain Dental Clinic';
   const clinicTagline = '|IMPLANTS| ALIGNERS| BRACES| ROOT CANAL TREATMENT | CROWNS';
