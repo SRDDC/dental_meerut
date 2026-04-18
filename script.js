@@ -351,6 +351,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const reviewSlider = document.querySelector('.review-slider');
+  const reviewSlides = document.querySelector('.review-slides');
+  const reviewItems = document.querySelectorAll('.review-slide');
+  if (reviewSlider && reviewSlides && reviewItems.length > 1) {
+    let currentReview = 0;
+    let reviewInterval = null;
+
+    const updateReviewPosition = () => {
+      reviewSlides.style.transform = `translateX(-${currentReview * 100}%)`;
+    };
+
+    const moveReview = () => {
+      currentReview = (currentReview + 1) % reviewItems.length;
+      updateReviewPosition();
+    };
+
+    reviewInterval = setInterval(moveReview, 4200);
+
+    reviewSlider.addEventListener('mouseenter', () => {
+      clearInterval(reviewInterval);
+    });
+
+    reviewSlider.addEventListener('mouseleave', () => {
+      reviewInterval = setInterval(moveReview, 4200);
+    });
+  }
+
   const setupFaqAccordion = () => {
     const faqSections = document.querySelectorAll('.faq-section');
     if (!faqSections.length) {

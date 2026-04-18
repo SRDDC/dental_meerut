@@ -574,12 +574,74 @@ a:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+@media (max-width: 900px) {
+  .review-slider {
+    padding: 0.8rem;
+  }
+
+  .review-slide img {
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 660px) {
+  .review-slider {
+    padding: 0.6rem;
+  }
+
+  .review-slide img {
+    border-radius: 14px;
+  }
+}
+
 .grid-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .cards-grid {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.review-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  margin-top: 1.25rem;
+}
+
+.review-slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.75s ease;
+}
+
+.review-slide {
+  min-width: 100%;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+}
+
+.review-slide img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-slide img:hover {
+  transform: scale(1.02);
+}
+
+.review-slider:hover .review-slide img {
+  transform: scale(1.03);
 }
 
 .card,
