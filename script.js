@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
   setupHeaderScroll();
 
-  const googleReviewsUrl = 'https://www.google.com/maps/search/?api=1&query=Shree+Rishabh+Dev+Dental+Clinic+Meerut';
+  const googleReviewsUrl = 'https://www.google.com/maps/place/Shree+Rishabh+Dev+Dental+Care+And+Implant+Centre/@28.9904958,77.6939872,17z/data=!4m16!1m7!3m6!1s0x390bb91d48c4beeb:0x8322396b30fbe782!2sShree+Rishabh+Dev+Dental+Care+And+Implant+Centre!8m2!3d28.9904911!4d77.6965621!16s%2Fg%2F11gbfny8dh!3m7!1s0x390bb91d48c4beeb:0x8322396b30fbe782!8m2!3d28.9904911!4d77.6965621!9m1!1b1!16s%2Fg%2F11gbfny8dh';
 
   const setupGoogleReviewLinks = () => {
     document.querySelectorAll('[data-google-reviews]').forEach((element) => {
