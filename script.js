@@ -532,6 +532,59 @@ document.addEventListener('DOMContentLoaded', () => {
     reviewSlider.addEventListener('touchend', startAutoPlay, { passive: true });
   }
 
+  const clinicHeroSlider = document.querySelector('.clinic-hero-slider');
+  const clinicHeroSlides = document.querySelector('.clinic-hero-slides');
+  const clinicHeroItems = document.querySelectorAll('.clinic-hero-slide');
+  const clinicHeroDots = document.querySelector('.clinic-hero-dots');
+  if (clinicHeroSlider && clinicHeroSlides && clinicHeroItems.length > 0) {
+    let currentClinicPhoto = 0;
+    let clinicPhotoInterval = null;
+
+    const updateClinicPhoto = () => {
+      clinicHeroSlides.style.transform = `translateX(-${currentClinicPhoto * 100}%)`;
+      if (clinicHeroDots) {
+        clinicHeroDots.querySelectorAll('.clinic-hero-dot').forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentClinicPhoto);
+          dot.setAttribute('aria-selected', String(index === currentClinicPhoto));
+        });
+      }
+    };
+
+    const goToClinicPhoto = (index) => {
+      currentClinicPhoto = ((index % clinicHeroItems.length) + clinicHeroItems.length) % clinicHeroItems.length;
+      updateClinicPhoto();
+    };
+
+    const startClinicAutoPlay = () => {
+      if (clinicHeroItems.length <= 1) {
+        return;
+      }
+      clearInterval(clinicPhotoInterval);
+      clinicPhotoInterval = setInterval(() => goToClinicPhoto(currentClinicPhoto + 1), 4000);
+    };
+
+    if (clinicHeroDots && !clinicHeroDots.children.length) {
+      clinicHeroItems.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `clinic-hero-dot${index === 0 ? ' active' : ''}`;
+        dot.setAttribute('aria-label', `Show clinic photo ${index + 1}`);
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', String(index === 0));
+        dot.addEventListener('click', () => {
+          goToClinicPhoto(index);
+          startClinicAutoPlay();
+        });
+        clinicHeroDots.appendChild(dot);
+      });
+    }
+
+    startClinicAutoPlay();
+
+    clinicHeroSlider.addEventListener('mouseenter', () => clearInterval(clinicPhotoInterval));
+    clinicHeroSlider.addEventListener('mouseleave', startClinicAutoPlay);
+  }
+
   const setupFaqAccordion = () => {
     const faqSections = document.querySelectorAll('.faq-section');
     if (!faqSections.length) {
