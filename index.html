@@ -13,6 +13,8 @@
   <meta property="og:image" content="https://srddc.com/Logo.jpeg" />
   <link rel="canonical" href="https://srddc.com/" />
   <link rel="icon" href="./Logo.jpeg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="styles.css" />
   <script type="application/ld+json">
   {
@@ -126,38 +128,52 @@
 
   <section class="hero">
     <div class="container hero-grid">
-      <div>
+      <div class="reveal">
         <span class="badge">Trusted Dental Clinic in Meerut</span>
         <h1>Best Dental Clinic in Meerut for Complete Family Dentistry</h1>
-        <p>Looking for the best dentist in Meerut? Our ISO 9001:2015 certified dental clinic in Meerut combines compassionate, patient-first treatment with modern dental science to deliver comfortable and long-lasting outcomes for every family member.</p>
+        <p>Looking for the best dentist in Meerut? Our ISO 9001:2015 certified dental clinic combines compassionate, patient-first treatment with modern dental science to deliver comfortable and long-lasting outcomes for every family member.</p>
         <p><strong>Best Dentists in Meerut</strong> with world class infrastructure and care protocols focused on your comfort.</p>
+        <div class="hero-actions">
+          <button type="button" class="btn-primary appointment-trigger" onclick="document.querySelector('.appointment-toggle-btn')?.click()">Book Appointment</button>
+          <a class="btn-secondary" href="tel:+919536579683">Call Now</a>
+          <a class="btn-secondary" href="https://wa.me/919536579683" target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>600+</strong><span>Google Reviews</span></div>
+          <div class="hero-stat"><strong>4.9+</strong><span>Star Rating</span></div>
+          <div class="hero-stat"><strong>5000+</strong><span>Happy Smiles</span></div>
+          <div class="hero-stat"><strong>ISO</strong><span>9001:2015 Certified</span></div>
+        </div>
       </div>
-      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop" alt="Modern dental treatment setup" loading="lazy" />
+      <div class="hero-image-wrap reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop" alt="Modern dental treatment setup" loading="eager" fetchpriority="high" width="600" height="450" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Patients Choose Us</h2>
+        <p class="section-lead">Experience advanced dentistry with technology, trust, and care that puts your smile first.</p>
+      </div>
+      <div class="glow-circles-grid">
+        <article class="glow-circle-item reveal"><button class="glow-circle" type="button" aria-label="Top Quality Dentistry"><span class="circle-icon">🦷</span></button><p>Top Quality Dentistry</p></article>
+        <article class="glow-circle-item reveal reveal-delay-1"><button class="glow-circle" type="button" aria-label="Latest Technology"><span class="circle-icon">🔬</span></button><p>Latest Technology</p></article>
+        <article class="glow-circle-item reveal reveal-delay-2"><button class="glow-circle" type="button" aria-label="Patient First Methodology"><span class="circle-icon">🤝</span></button><p>Patient First Methodology</p></article>
+        <article class="glow-circle-item reveal reveal-delay-3"><button class="glow-circle" type="button" aria-label="Best Dentists in Meerut"><span class="circle-icon">👨‍⚕️</span></button><p>Best Dentists in Meerut</p></article>
+        <article class="glow-circle-item reveal reveal-delay-1"><button class="glow-circle" type="button" aria-label="World Class Infrastructure"><span class="circle-icon">🏥</span></button><p>World Class Infrastructure</p></article>
+        <article class="glow-circle-item reveal reveal-delay-2"><button class="glow-circle" type="button" aria-label="600+ Positive Reviews on Google"><span class="circle-icon">⭐</span></button><p>600+ Positive Reviews</p></article>
+        <article class="glow-circle-item reveal reveal-delay-3"><button class="glow-circle" type="button" aria-label="4.9+ Ratings"><span class="circle-icon">📈</span></button><p>4.9+ Ratings</p></article>
+        <article class="glow-circle-item reveal reveal-delay-4"><button class="glow-circle" type="button" aria-label="5000+ Happy Smiles"><span class="circle-icon">😊</span></button><p>5000+ Happy Smiles</p></article>
+        <article class="glow-circle-item reveal reveal-delay-4"><button class="glow-circle" type="button" aria-label="ISO 9001:2015 Certified"><span class="circle-icon">🏆</span></button><p>ISO 9001:2015 Certified</p></article>
+      </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <h2>Why Patients Choose Us</h2>
-      <div class="glow-circles-grid">
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="Top Quality Dentistry"><span class="circle-icon">🦷</span></button><p>Top Quality Dentistry</p></article>
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="Latest Technology"><span class="circle-icon">🔬</span></button><p>Latest Technology</p></article>
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="Patient First Methodology"><span class="circle-icon">🤝</span></button><p>Patient First Methodology</p></article>
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="Best Dentists in Meerut"><span class="circle-icon">👨‍⚕️</span></button><p>Best Dentists in Meerut</p></article>
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="World Class Infrastructure"><span class="circle-icon">🏥</span></button><p>World Class Infrastructure</p></article>
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="600+ Positive Reviews on Google"><span class="circle-icon">⭐</span></button><p>600+ Positive Reviews on Google</p></article>
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="4.9+ Ratings"><span class="circle-icon">📈</span></button><p>4.9+ Ratings</p></article>
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="5000+ Happy Smiles"><span class="circle-icon">😊</span></button><p>5000+ Happy Smiles</p></article>
-        <article class="glow-circle-item"><button class="glow-circle" type="button" aria-label="ISO 9001:2015 Certified"><span class="circle-icon">🏆</span></button><p>ISO 9001:2015 Certified</p></article>
-      </div>
-    </div>
-  </section>
-
-
-
-  <section class="section" style="background:#f6f6f7;">
     <div class="container grid-2">
-      <article class="info-card">
+      <article class="info-card reveal">
         <h3>Visit Our Advanced Dental Clinic in Meerut</h3>
         <p>Looking for a modern dental clinic in Meerut? Visit us at:<br>
         <strong>205 Dharam puri Near sadar police station, opposite Adhaar Shila School, Meerut, Uttar Pradesh 250001</strong></p>
@@ -165,18 +181,39 @@
           <li>We serve patients from Shastri Nagar, Jagriti Vihar, Ganga Nagar, Pallavpuram, Modipuram, Kanker Khera, Meerut Cantt, and all nearby areas.</li>
           <li>Our clinic is known for painless root canal treatment, affordable dental implants, and experienced dentists in Meerut.</li>
         </ul>
+        <a class="btn-outline" href="contact.html">Get Directions</a>
       </article>
-      <article class="info-card">
+      <article class="info-card reveal reveal-delay-2">
         <h3>Call / WhatsApp Your Family Dentist</h3>
         <p><a href="tel:+919536579683">9536579683</a> | <a href="https://wa.me/919536579683" target="_blank" rel="noopener">WhatsApp Chat</a></p>
         <p>Emergency dentist in Meerut available for urgent tooth pain, broken tooth repair, and emergency tooth extraction.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="tel:+919536579683">Call Clinic</a>
+          <a class="btn-outline" href="https://wa.me/919536579683" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
       </article>
     </div>
   </section>
 
-  <section class="section faq-section">
+  <section class="section section-dark">
     <div class="container">
-      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="cta-banner reveal">
+        <h3>Ready for Your Perfect Smile?</h3>
+        <p>Book a consultation today and discover why thousands of patients trust us with their dental care.</p>
+        <div class="hero-actions">
+          <button type="button" class="btn-primary appointment-trigger" onclick="document.querySelector('.appointment-toggle-btn')?.click()">Book Free Consultation</button>
+          <a class="btn-secondary" href="blog.html">See Patient Stories</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Frequently Asked Questions</h2>
+        <p class="section-lead">Quick answers to common questions about dental care at our Meerut clinic.</p>
+      </div>
       <div class="cards-grid">
         <article class="card">
           <h3>Which is the best dentist in Meerut?</h3>

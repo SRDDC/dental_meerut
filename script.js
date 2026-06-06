@@ -1,6 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Doctor card glow effect on click/focus
-    document.querySelectorAll('.doctor-glow').forEach(card => {
+  const setupScrollReveal = () => {
+    const revealElements = document.querySelectorAll('.reveal');
+    if (!revealElements.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+  };
+
+  const setupHeaderScroll = () => {
+    const header = document.querySelector('.site-header');
+    if (!header) {
+      return;
+    }
+
+    const onScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  };
+
+  setupScrollReveal();
+  setupHeaderScroll();
+
+  // Doctor card glow effect on click/focus
+  document.querySelectorAll('.doctor-glow').forEach(card => {
       card.addEventListener('click', function() {
         document.querySelectorAll('.doctor-glow').forEach(c => c.classList.remove('glow'));
         this.classList.add('glow');
@@ -107,10 +145,60 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.menu-btn');
   const navLinks = document.querySelector('.nav-links');
 
+  const closeMobileMenu = () => {
+    if (!navLinks) {
+      return;
+    }
+    navLinks.classList.remove('show');
+    document.body.classList.remove('menu-open');
+    if (menuBtn) {
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  const openMobileMenu = () => {
+    if (!navLinks) {
+      return;
+    }
+    navLinks.classList.add('show');
+    document.body.classList.add('menu-open');
+    if (menuBtn) {
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+  };
+
   if (menuBtn && navLinks) {
     menuBtn.innerHTML = '<span aria-hidden="true">☰</span><span class="menu-label">Menu</span>';
+    menuBtn.setAttribute('aria-expanded', 'false');
     menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
+      if (navLinks.classList.contains('show')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 760px)').matches) {
+          closeMobileMenu();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navLinks.classList.contains('show')) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!navLinks.classList.contains('show')) {
+        return;
+      }
+      if (!navLinks.contains(event.target) && !menuBtn.contains(event.target)) {
+        closeMobileMenu();
+      }
     });
   }
 
@@ -354,28 +442,78 @@ document.addEventListener('DOMContentLoaded', () => {
   const reviewSlider = document.querySelector('.review-slider');
   const reviewSlides = document.querySelector('.review-slides');
   const reviewItems = document.querySelectorAll('.review-slide');
-  if (reviewSlider && reviewSlides && reviewItems.length > 1) {
+  if (reviewSlider && reviewSlides && reviewItems.length > 0) {
     let currentReview = 0;
     let reviewInterval = null;
 
+    const dotsContainer = reviewSlider.parentElement?.querySelector('.review-dots');
+    const prevBtn = reviewSlider.parentElement?.querySelector('.review-prev');
+    const nextBtn = reviewSlider.parentElement?.querySelector('.review-next');
+
     const updateReviewPosition = () => {
       reviewSlides.style.transform = `translateX(-${currentReview * 100}%)`;
+      if (dotsContainer) {
+        dotsContainer.querySelectorAll('.review-dot').forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentReview);
+          dot.setAttribute('aria-selected', String(index === currentReview));
+        });
+      }
     };
 
-    const moveReview = () => {
-      currentReview = (currentReview + 1) % reviewItems.length;
+    const goToReview = (index) => {
+      currentReview = ((index % reviewItems.length) + reviewItems.length) % reviewItems.length;
       updateReviewPosition();
     };
 
-    reviewInterval = setInterval(moveReview, 4200);
+    const moveReview = (direction = 1) => {
+      goToReview(currentReview + direction);
+    };
 
-    reviewSlider.addEventListener('mouseenter', () => {
+    const startAutoPlay = () => {
+      if (reviewItems.length <= 1) {
+        return;
+      }
       clearInterval(reviewInterval);
-    });
+      reviewInterval = setInterval(() => moveReview(1), 4500);
+    };
 
-    reviewSlider.addEventListener('mouseleave', () => {
-      reviewInterval = setInterval(moveReview, 4200);
-    });
+    if (dotsContainer && !dotsContainer.children.length) {
+      reviewItems.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `review-dot${index === 0 ? ' active' : ''}`;
+        dot.setAttribute('aria-label', `Go to review ${index + 1}`);
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', String(index === 0));
+        dot.addEventListener('click', () => {
+          goToReview(index);
+          startAutoPlay();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        moveReview(-1);
+        startAutoPlay();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        moveReview(1);
+        startAutoPlay();
+      });
+    }
+
+    startAutoPlay();
+
+    reviewSlider.addEventListener('mouseenter', () => clearInterval(reviewInterval));
+    reviewSlider.addEventListener('mouseleave', startAutoPlay);
+
+    reviewSlider.addEventListener('touchstart', () => clearInterval(reviewInterval), { passive: true });
+    reviewSlider.addEventListener('touchend', startAutoPlay, { passive: true });
   }
 
   const setupFaqAccordion = () => {
