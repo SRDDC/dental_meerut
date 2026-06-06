@@ -37,6 +37,37 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
   setupHeaderScroll();
 
+  const googleReviewsUrl = 'https://www.google.com/maps/search/?api=1&query=Shree+Rishabh+Dev+Dental+Clinic+Meerut';
+
+  const setupGoogleReviewLinks = () => {
+    document.querySelectorAll('[data-google-reviews]').forEach((element) => {
+      element.addEventListener('click', (event) => {
+        if (event.target.closest('.review-prev, .review-next, .review-dot')) {
+          return;
+        }
+        window.open(googleReviewsUrl, '_blank', 'noopener,noreferrer');
+      });
+      element.setAttribute('role', 'link');
+      element.setAttribute('tabindex', '0');
+      element.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          window.open(googleReviewsUrl, '_blank', 'noopener,noreferrer');
+        }
+      });
+    });
+
+    document.querySelectorAll('a.google-reviews-link').forEach((link) => {
+      if (!link.href || link.href === '#') {
+        link.href = googleReviewsUrl;
+      }
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    });
+  };
+
+  setupGoogleReviewLinks();
+
   // Doctor card glow effect on click/focus
   document.querySelectorAll('.doctor-glow').forEach(card => {
       card.addEventListener('click', function() {
@@ -52,13 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Glow circle click effect
-    document.querySelectorAll('.glow-circle').forEach(circle => {
-      circle.addEventListener('click', function() {
-        document.querySelectorAll('.glow-circle').forEach(c => c.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
   const clinicName = 'Shree Rishabh Dev Dental Care And Implant Centre';
   const oldClinicName = 'Jain Dental Clinic';
   const clinicTagline = '|IMPLANTS| ALIGNERS| BRACES| ROOT CANAL TREATMENT | CROWNS';
@@ -430,14 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
-  const glowCircles = document.querySelectorAll('.glow-circle');
-  glowCircles.forEach((circle) => {
-    circle.addEventListener('click', () => {
-      glowCircles.forEach((item) => item.classList.remove('active'));
-      circle.classList.add('active');
-    });
-  });
 
   const reviewSlider = document.querySelector('.review-slider');
   const reviewSlides = document.querySelector('.review-slides');
