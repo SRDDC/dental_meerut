@@ -97,7 +97,41 @@ document.addEventListener('DOMContentLoaded', () => {
     parentListItem.appendChild(dropdownMenu);
   };
 
+  const setupSocialDropdown = () => {
+    const nav = document.querySelector('.nav-links');
+    if (!nav) return;
+    const existingSocial = Array.from(nav.querySelectorAll('li > a')).find((link) => link.textContent.trim().toUpperCase() === 'SOCIAL');
+    if (existingSocial) return;
+
+    const socialItem = document.createElement('li');
+    socialItem.className = 'dropdown';
+    const socialLink = document.createElement('a');
+    socialLink.href = '#';
+    socialLink.textContent = 'SOCIAL';
+    const dropdownMenu = document.createElement('ul');
+    dropdownMenu.className = 'dropdown-menu';
+    const socialLinks = [
+      { title: 'Instagram Reel', href: 'https://www.instagram.com/reel/DZXT56ivNg5/?l=1' }
+    ];
+
+    socialLinks.forEach((item) => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = item.href;
+      link.textContent = item.title;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      li.appendChild(link);
+      dropdownMenu.appendChild(li);
+    });
+
+    socialItem.appendChild(socialLink);
+    socialItem.appendChild(dropdownMenu);
+    nav.appendChild(socialItem);
+  };
+
   setupBlogDropdown();
+  setupSocialDropdown();
 
   const setupDropdownToggle = () => {
     document.querySelectorAll('.nav-links > li.dropdown > a').forEach((link) => {
