@@ -1451,15 +1451,34 @@ img {
   font-weight: 600;
 }
 
-.feature img,
-.blog-photos img {
-  width: 100%;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  object-fit: cover;
-}
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    max-width: 1100px;
+  }
 
-/* ─── FAQ Accordion ─── */
+  .gallery figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .gallery img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+  }
+
+  .case-details {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
 .faq-toggle-card,
 .about-toggle-card {
   transition: all var(--transition-smooth);
