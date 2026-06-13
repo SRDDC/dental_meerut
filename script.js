@@ -68,6 +68,102 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupGoogleReviewLinks();
 
+  const setupBlogDropdown = () => {
+    const blogLinks = Array.from(document.querySelectorAll('.nav-links > li > a'));
+    const blogLink = blogLinks.find((link) => link.textContent.trim().toUpperCase() === 'BLOG');
+    if (!blogLink) return;
+    const parentListItem = blogLink.closest('li');
+    if (!parentListItem || parentListItem.querySelector('.dropdown-menu')) return;
+
+    parentListItem.classList.add('dropdown');
+    const dropdownMenu = document.createElement('ul');
+    dropdownMenu.className = 'dropdown-menu';
+    const items = [
+      { title: 'All Blog Stories', href: 'blog.html' },
+      { title: 'Case 1: Midline Diastema Closure', href: 'Blog/midline-diastema/index.html' },
+      { title: 'Case 2: Full Mouth Implant Rehabilitation', href: 'Blog/Full Mouth Implant/index.html' },
+      { title: 'Case 3: Full Mouth Implant Rehabilitation 2', href: 'Blog/Full Mouth Implant 2/index.html' }
+    ];
+
+    items.forEach((item) => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = item.href;
+      link.textContent = item.title;
+      li.appendChild(link);
+      dropdownMenu.appendChild(li);
+    });
+
+    parentListItem.appendChild(dropdownMenu);
+  };
+
+  setupBlogDropdown();
+
+  const setupDropdownToggle = () => {
+    document.querySelectorAll('.nav-links > li.dropdown > a').forEach((link) => {
+      const parent = link.parentElement;
+      link.addEventListener('click', (event) => {
+        if (window.matchMedia('(max-width: 760px)').matches) {
+          event.preventDefault();
+          parent.classList.toggle('open');
+        }
+      });
+    });
+  };
+
+  setupDropdownToggle();
+
+  const setupLightbox = () => {
+    const overlay = document.createElement('div');
+    overlay.className = 'image-lightbox';
+    overlay.innerHTML = `
+      <div class="image-lightbox-inner">
+        <button type="button" class="image-lightbox-close" aria-label="Close image">×</button>
+        <img src="" alt="" />
+        <p class="image-lightbox-caption"></p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const imgElement = overlay.querySelector('img');
+    const captionElement = overlay.querySelector('.image-lightbox-caption');
+    const closeButton = overlay.querySelector('.image-lightbox-close');
+
+    const closeLightbox = () => {
+      overlay.classList.remove('visible');
+      imgElement.src = '';
+      imgElement.alt = '';
+      captionElement.textContent = '';
+    };
+
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay || event.target === closeButton) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && overlay.classList.contains('visible')) {
+        closeLightbox();
+      }
+    });
+
+    document.body.addEventListener('click', (event) => {
+      const trigger = event.target.closest('.lightbox-trigger');
+      if (!trigger) return;
+      event.preventDefault();
+      const imgSrc = trigger.getAttribute('href') || trigger.querySelector('img')?.src;
+      const caption = trigger.dataset.caption || trigger.querySelector('img')?.alt || '';
+      if (!imgSrc) return;
+      imgElement.src = imgSrc;
+      imgElement.alt = caption || 'Case study image';
+      captionElement.textContent = caption;
+      overlay.classList.add('visible');
+    });
+  };
+
+  setupLightbox();
+
   // Doctor card glow effect on click/focus
   document.querySelectorAll('.doctor-glow').forEach(card => {
       card.addEventListener('click', function() {
