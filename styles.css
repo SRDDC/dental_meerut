@@ -193,6 +193,10 @@ img {
   letter-spacing: 0.03em;
 }
 
+.logo-wrap span:empty {
+  display: none;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
