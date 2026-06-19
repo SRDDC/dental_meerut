@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!parentListItem || parentListItem.querySelector('.dropdown-menu')) return;
 
     parentListItem.classList.add('dropdown');
+    blogLink.href = '#';
     const dropdownMenu = document.createElement('ul');
     dropdownMenu.className = 'dropdown-menu';
     const items = [
@@ -137,7 +138,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-links > li.dropdown > a').forEach((link) => {
       const parent = link.parentElement;
       link.addEventListener('click', (event) => {
-        if (window.matchMedia('(max-width: 760px)').matches) {
+        const isMobileMenu = window.matchMedia('(max-width: 760px)').matches;
+        
+        // For blog and social dropdowns (href='#'), always toggle on click
+        if (link.href.endsWith('#')) {
+          event.preventDefault();
+          parent.classList.toggle('open');
+          return;
+        }
+
+        // For services dropdown, toggle on mobile only
+        if (isMobileMenu) {
           event.preventDefault();
           parent.classList.toggle('open');
         }
