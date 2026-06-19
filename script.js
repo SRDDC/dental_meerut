@@ -80,10 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownMenu = document.createElement('ul');
     dropdownMenu.className = 'dropdown-menu';
     const items = [
-      { title: 'All Blog Stories', href: 'blog.html' },
-      { title: 'Case 1: Midline Diastema Closure', href: 'Blog/midline-diastema/index.html' },
-      { title: 'Case 2: Full Mouth Implant Rehabilitation', href: 'Blog/Full Mouth Implant/index.html' },
-      { title: 'Case 3: Full Mouth Implant Rehabilitation 2', href: 'Blog/Full Mouth Implant 2/index.html' }
+      { title: 'All Blog Stories', href: '/blog.html' },
+      { title: 'Case 1: Midline Diastema Closure', href: '/Blog/midline-diastema/index.html' },
+      { title: 'Case 2: Full Mouth Implant Rehabilitation', href: '/Blog/Full Mouth Implant/index.html' },
+      { title: 'Case 3: Full Mouth Implant Rehabilitation 2', href: '/Blog/Full Mouth Implant 2/index.html' }
     ];
 
     items.forEach((item) => {
