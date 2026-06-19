@@ -333,10 +333,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        if (window.matchMedia('(max-width: 760px)').matches) {
-          closeMobileMenu();
+      link.addEventListener('click', (event) => {
+        const isMobileMenu = window.matchMedia('(max-width: 760px)').matches;
+        if (!isMobileMenu) {
+          return;
         }
+
+        const parentDropdown = link.closest('li.dropdown');
+        const hasChildMenu = parentDropdown && parentDropdown.querySelector('.dropdown-menu');
+        if (hasChildMenu && link === parentDropdown.querySelector(':scope > a')) {
+          // Keep mobile menu open when toggling a parent dropdown anchor
+          return;
+        }
+
+        closeMobileMenu();
       });
     });
 
