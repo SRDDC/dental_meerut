@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { title: 'All Blog Stories', href: '/blog.html' },
       { title: 'Case 1: Midline Diastema Closure', href: '/Blog/midline-diastema/index.html' },
       { title: 'Case 2: Full Mouth Implant Rehabilitation', href: '/Blog/Full%20Mouth%20Implant/index.html' },
-      { title: 'Case 3: Full Mouth Implant Rehabilitation 2', href: '/Blog/Full%20Mouth%20Implant%202/index.html' }
+      { title: 'Case 3: Full Mouth Implant Rehabilitation 2', href: '/Blog/Full%20Mouth%20Implant%202/index.html' },
+      { title: 'Case 4: Painless RCT', href: '/Blog/PainlessRCT/index.html' }
     ];
 
     items.forEach((item) => {
