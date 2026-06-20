@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownMenu = document.createElement('ul');
     dropdownMenu.className = 'dropdown-menu';
     const socialLinks = [
-      { title: 'Instagram Reel', href: 'https://www.instagram.com/reel/DZXT56ivNg5/?l=1' }
+      { title: 'Advanced Tech for Implants - Osstell Beacon', href: 'https://www.instagram.com/reel/DZXT56ivNg5/?l=1' }
     ];
 
     socialLinks.forEach((item) => {
