@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f7f3eb"/>
+  <rect x="120" y="120" width="560" height="260" rx="24" fill="#fff" stroke="#d8cbb8" stroke-width="3"/>
+  <path d="M220 320 C260 240, 280 200, 330 170 C380 140, 430 140, 470 170 C520 200, 548 240, 580 320" fill="none" stroke="#a67643" stroke-width="18" stroke-linecap="round"/>
+  <path d="M220 330 C260 250, 285 215, 330 185 C370 160, 420 160, 470 185 C520 215, 548 250, 580 330" fill="none" stroke="#8c5c23" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <text x="400" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#7a4d1b">Before: stained and uneven teeth</text>
+</svg>

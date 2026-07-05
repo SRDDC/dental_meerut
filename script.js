@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { title: 'Case 4: Painless RCT', href: '/Blog/PainlessRCT/index.html' },
       { title: 'Case 5: Neuroma Case', href: '/Blog/Neuroma/index.html' },
       { title: 'Case 6: Spacing and Irregularity', href: '/Blog/Spacing/index.html' },
-      { title: 'Case 7: Extra Oral Sinus Formation (EOS)', href: '/Blog/ExtraOralSinus(EOS)Case/index.html' }
+      { title: 'Case 7: Extra Oral Sinus Formation (EOS)', href: '/Blog/ExtraOralSinus(EOS)Case/index.html' },
+      { title: 'Case 8: Discolouration and Staining', href: '/Blog/DiscolourationCase/index.html' }
     ];
 
     items.forEach((item) => {
