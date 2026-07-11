@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownMenu.className = 'dropdown-menu';
     const items = [
       { title: 'All Blog Stories', href: '/blog.html' },
+      { title: 'RCT Costs in Meerut & Delhi-NCR', href: '/rct-costs-in-meerut-delhi-ncr.html' },
       { title: 'Case 1: Midline Diastema Closure', href: '/Blog/midline-diastema/index.html' },
       { title: 'Case 2: Full Mouth Implant Rehabilitation', href: '/Blog/Full%20Mouth%20Implant/index.html' },
       { title: 'Case 3: Full Mouth Implant Rehabilitation 2', href: '/Blog/Full%20Mouth%20Implant%202/index.html' },
@@ -117,7 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownMenu = document.createElement('ul');
     dropdownMenu.className = 'dropdown-menu';
     const socialLinks = [
-      { title: 'Advanced Tech for Implants - Osstell Beacon', href: 'https://www.instagram.com/reel/DZXT56ivNg5/?l=1' }
+      { title: 'All Social Posts', href: 'social.html' },
+      { title: "Don't Ignore Tooth Pain (Wisdom Tooth)", href: 'https://www.instagram.com/reel/DaK_BOIvHqN/?l=1' },
+      { title: 'Rating different drinks /10', href: 'https://www.instagram.com/reel/DZ5Ebbkv1N8/?l=1' },
+      { title: 'Dental Implants - Myths vs Facts', href: 'https://www.instagram.com/reel/DZpfi2XuByo/?l=1' },
+      { title: 'Most clinics guess- we measure- Osstell Beacon', href: 'https://www.instagram.com/reel/DZXT56ivNg5/?l=1' },
+      { title: 'Drinking Cold Drink Daily- watch this!', href: 'https://www.instagram.com/reel/DZIK7zNvX4U/?l=1' },
+      { title: 'Unboxing the Ostell Beacon- our latest tech.', href: 'https://www.instagram.com/reel/DY7WSxmvRhO/?l=1' }
     ];
 
     socialLinks.forEach((item) => {
