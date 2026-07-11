@@ -202,6 +202,20 @@
     if (ogDescription) {
       ogDescription.setAttribute('content', `Get expert ${selected.title.toLowerCase()} in Meerut at our dental clinic in Meerut.`);
     }
+
+    if (key === 'root-canals') {
+      const container = document.querySelector('.container.grid-2');
+      if (container) {
+        const blogCard = document.createElement('article');
+        blogCard.className = 'card reveal';
+        blogCard.innerHTML = `
+          <h2>Learn About Root Canal Treatment Costs</h2>
+          <p>Read our detailed guide on <strong>RCT Costs in Meerut & Delhi-NCR</strong> to understand treatment pricing, painless RCT options, and crown costs.</p>
+          <a class="btn-secondary" href="rct-costs-in-meerut-delhi-ncr.html">Read RCT Cost Guide</a>
+        `;
+        container.appendChild(blogCard);
+      }
+    }
   </script>
 </body>
 </html>
