@@ -1747,6 +1747,17 @@ img {
   margin-bottom: 0;
 }
 
+.doctor-credentials {
+  margin: 0.85rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+.doctor-credentials li + li {
+  margin-top: 0.35rem;
+}
+
 /* ─── Floating Actions ─── */
 .floating-actions {
   position: fixed;
