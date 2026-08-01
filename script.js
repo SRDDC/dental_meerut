@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownMenu.className = 'dropdown-menu';
     const items = [
       { title: 'All Blog Stories', href: '/blog.html' },
+      { title: 'Dental Implant Costs in Meerut & Delhi-NCR', href: '/dental-implant-costs-in-meerut-delhi-ncr.html' },
       { title: 'RCT Costs in Meerut & Delhi-NCR', href: '/rct-costs-in-meerut-delhi-ncr.html' },
       { title: 'Case 1: Midline Diastema Closure', href: '/Blog/midline-diastema/index.html' },
       { title: 'Case 2: Full Mouth Implant Rehabilitation', href: '/Blog/Full%20Mouth%20Implant/index.html' },
