@@ -72,13 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const blogLinks = Array.from(document.querySelectorAll('.nav-links > li > a'));
     const blogLink = blogLinks.find((link) => link.textContent.trim().toUpperCase() === 'BLOG');
     if (!blogLink) return;
+
     const parentListItem = blogLink.closest('li');
-    if (!parentListItem || parentListItem.querySelector('.dropdown-menu')) return;
+    if (!parentListItem) return;
 
     parentListItem.classList.add('dropdown');
     blogLink.href = '#';
-    const dropdownMenu = document.createElement('ul');
-    dropdownMenu.className = 'dropdown-menu';
+
+    let dropdownMenu = parentListItem.querySelector('.dropdown-menu');
+    if (!dropdownMenu) {
+      dropdownMenu = document.createElement('ul');
+      dropdownMenu.className = 'dropdown-menu';
+      parentListItem.appendChild(dropdownMenu);
+    }
+
+    dropdownMenu.innerHTML = '';
+
     const items = [
       { title: 'All Blog Stories', href: '/blog.html' },
       { title: 'Dental Implant Costs in Meerut & Delhi-NCR', href: '/dental-implant-costs-in-meerut-delhi-ncr.html' },
@@ -90,7 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { title: 'Case 5: Neuroma Case', href: '/Blog/Neuroma/index.html' },
       { title: 'Case 6: Spacing and Irregularity', href: '/Blog/Spacing/index.html' },
       { title: 'Case 7: Extra Oral Sinus Formation (EOS)', href: '/Blog/ExtraOralSinus(EOS)Case/index.html' },
-      { title: 'Case 8: Discolouration and Staining', href: '/Blog/DiscolourationCase/index.html' }
+      { title: 'Case 8: Discolouration and Staining', href: '/Blog/DiscolourationCase/index.html' },
+      { title: 'Case 9: Is Dental Implant Painful?', href: '/Blog/Painless_Dental_Implant_Metal_Free_Zirconia_Crowns/index.html' }
     ];
 
     items.forEach((item) => {
@@ -101,8 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
       li.appendChild(link);
       dropdownMenu.appendChild(li);
     });
-
-    parentListItem.appendChild(dropdownMenu);
   };
 
   const setupSocialDropdown = () => {
