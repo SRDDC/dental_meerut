@@ -341,7 +341,7 @@ img {
 .nested-dropdown {
   list-style: none;
   position: absolute;
-  top: -0.4rem;
+  top: 0;
   left: calc(100% + 0.35rem);
   min-width: 230px;
   background: rgba(255, 255, 255, 0.95);
