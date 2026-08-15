@@ -354,7 +354,9 @@ img {
   display: none;
 }
 
-.has-submenu.open .nested-dropdown {
+.has-submenu.open .nested-dropdown,
+.has-submenu:hover .nested-dropdown,
+.has-submenu:focus-within .nested-dropdown {
   display: block;
 }
 

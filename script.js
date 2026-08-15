@@ -123,10 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dropdownMenu.innerHTML = '';
 
-    const items = [
+    const topItems = [
       { title: 'All Blog Stories', href: '/blog.html' },
       { title: 'Dental Implant Costs in Meerut & Delhi-NCR', href: '/dental-implant-costs-in-meerut-delhi-ncr.html' },
-      { title: 'RCT Costs in Meerut & Delhi-NCR', href: '/rct-costs-in-meerut-delhi-ncr.html' },
+      { title: 'RCT Costs in Meerut & Delhi-NCR', href: '/rct-costs-in-meerut-delhi-ncr.html' }
+    ];
+
+    const caseItems = [
       { title: 'Case 1: Midline Diastema Closure', href: '/Blog/midline-diastema/index.html' },
       { title: 'Case 2: Full Mouth Implant Rehabilitation', href: '/Blog/Full%20Mouth%20Implant/index.html' },
       { title: 'Case 3: Full Mouth Implant Rehabilitation 2', href: '/Blog/Full%20Mouth%20Implant%202/index.html' },
@@ -138,13 +141,65 @@ document.addEventListener('DOMContentLoaded', () => {
       { title: 'Case 9: Is Dental Implant Painful?', href: '/Blog/Painless_Dental_Implant_Metal_Free_Zirconia_Crowns/index.html' }
     ];
 
-    items.forEach((item) => {
+    topItems.forEach((item) => {
       const li = document.createElement('li');
       const link = document.createElement('a');
       link.href = item.href;
       link.textContent = item.title;
       li.appendChild(link);
       dropdownMenu.appendChild(li);
+    });
+
+    const casesItem = document.createElement('li');
+    casesItem.className = 'has-submenu';
+
+    const casesRow = document.createElement('div');
+    casesRow.className = 'submenu-row';
+
+    const casesLink = document.createElement('a');
+    casesLink.href = '/blog.html';
+    casesLink.className = 'category-link';
+    casesLink.textContent = 'Cases';
+
+    const casesToggle = document.createElement('button');
+    casesToggle.type = 'button';
+    casesToggle.className = 'submenu-toggle';
+    casesToggle.setAttribute('aria-label', 'Toggle Cases submenu');
+    casesToggle.textContent = '›';
+
+    casesRow.appendChild(casesLink);
+    casesRow.appendChild(casesToggle);
+    casesItem.appendChild(casesRow);
+
+    const nestedDropdown = document.createElement('ul');
+    nestedDropdown.className = 'nested-dropdown';
+
+    caseItems.forEach((item) => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = item.href;
+      link.textContent = item.title;
+      li.appendChild(link);
+      nestedDropdown.appendChild(li);
+    });
+
+    casesItem.appendChild(nestedDropdown);
+    dropdownMenu.appendChild(casesItem);
+  };
+
+  const setupNestedSubmenuToggle = () => {
+    document.querySelectorAll('.has-submenu').forEach((menuItem) => {
+      const toggleButton = menuItem.querySelector('.submenu-toggle');
+      if (!toggleButton) return;
+
+      toggleButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        menuItem.classList.toggle('open');
+      });
+
+      menuItem.addEventListener('mouseenter', () => menuItem.classList.add('open'));
+      menuItem.addEventListener('mouseleave', () => menuItem.classList.remove('open'));
     });
   };
 
@@ -188,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   setupBlogDropdown();
+  setupNestedSubmenuToggle();
   setupSocialDropdown();
 
   const setupDropdownToggle = () => {
