@@ -126,7 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const topItems = [
       { title: 'All Blog Stories', href: '/blog.html' },
       { title: 'Dental Implant Costs in Meerut & Delhi-NCR', href: '/dental-implant-costs-in-meerut-delhi-ncr.html' },
-      { title: 'RCT Costs in Meerut & Delhi-NCR', href: '/rct-costs-in-meerut-delhi-ncr.html' }
+      { title: 'RCT Costs in Meerut & Delhi-NCR', href: '/rct-costs-in-meerut-delhi-ncr.html' },
+      { title: 'Braces Cost in Meerut & Delhi-NCR', href: '/braces-costs-in-meerut-delhi-ncr.html' }
     ];
 
     const caseItems = [
