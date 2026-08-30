@@ -619,6 +619,27 @@ document.addEventListener('DOMContentLoaded', () => {
     navbar.appendChild(appointmentToggleBtn);
   }
 
+  const positionNestedDropdowns = () => {
+    document.querySelectorAll('.has-submenu').forEach((menuItem) => {
+      const nestedDropdown = menuItem.querySelector('.nested-dropdown');
+      if (!nestedDropdown) return;
+
+      const parentRect = menuItem.getBoundingClientRect();
+      const submenuWidth = nestedDropdown.offsetWidth || 220;
+      const viewportWidth = window.innerWidth;
+      const overflowRight = parentRect.right + submenuWidth > viewportWidth - 16;
+      const overflowLeft = parentRect.left - submenuWidth < 16;
+
+      if (overflowRight && !overflowLeft) {
+        nestedDropdown.style.left = 'auto';
+        nestedDropdown.style.right = 'calc(100% + 0.2rem)';
+      } else {
+        nestedDropdown.style.left = 'calc(100% + 0.2rem)';
+        nestedDropdown.style.right = 'auto';
+      }
+    });
+  };
+
   const servicesNavDropdowns = document.querySelectorAll('.dropdown');
   servicesNavDropdowns.forEach((dropdown) => {
     const serviceLink = dropdown.querySelector(':scope > a[href="services.html"]');
@@ -679,6 +700,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const isOpen = currentItem.classList.toggle('open');
         submenuToggle.setAttribute('aria-expanded', String(isOpen));
+        positionNestedDropdowns();
 
         dropdownMenu.querySelectorAll('.has-submenu').forEach((item) => {
           if (item !== currentItem) {
@@ -692,6 +714,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  window.addEventListener('resize', positionNestedDropdowns);
 
   document.addEventListener('click', (event) => {
     servicesNavDropdowns.forEach((dropdown) => {
