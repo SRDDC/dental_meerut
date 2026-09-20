@@ -2070,11 +2070,13 @@ img {
 
 .doctor-profile summary img {
   display: block;
-  width: 100%;
-  aspect-ratio: 4 / 4.6;
+  width: 140px;
+  height: 170px;
   object-fit: cover;
   border-radius: var(--radius-sm);
   margin-bottom: 0.9rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .doctor-profile summary h3 {
@@ -2099,7 +2101,7 @@ img {
   display: inline-block;
   margin-top: 0.8rem;
   color: var(--color-primary-dark);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
@@ -2114,8 +2116,8 @@ img {
 .profile-detail {
   padding: 0 1.1rem 1.1rem;
   color: var(--color-muted);
-  font-size: 0.9rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.72;
   animation: profile-reveal 0.25s ease-out;
 }
 
