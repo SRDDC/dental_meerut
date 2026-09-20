@@ -2024,6 +2024,132 @@ img {
   margin-top: 0.35rem;
 }
 
+/* Compact team profiles keep the page scannable while preserving full bios. */
+.team-intro {
+  margin: -0.5rem 0 2rem;
+}
+
+.doctor-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  align-items: start;
+}
+
+.doctor-profile {
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.doctor-profile[open] {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-3px);
+}
+
+.doctor-profile summary {
+  padding: 1.1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.doctor-profile summary::-webkit-details-marker {
+  display: none;
+}
+
+.doctor-profile summary:focus-visible {
+  outline: 3px solid rgba(6, 182, 212, 0.35);
+  outline-offset: -3px;
+}
+
+.doctor-profile summary img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.9rem;
+}
+
+.doctor-profile summary h3 {
+  margin: 0.35rem 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.doctor-profile summary p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.doctor-profile .badge {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.68rem;
+}
+
+.profile-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--color-primary-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.profile-link::after {
+  content: '  +';
+}
+
+.doctor-profile[open] .profile-link::after {
+  content: '  −';
+}
+
+.profile-detail {
+  padding: 0 1.1rem 1.1rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  animation: profile-reveal 0.25s ease-out;
+}
+
+.profile-detail p {
+  margin: 0 0 0.75rem;
+}
+
+.profile-detail p:last-child {
+  margin-bottom: 0;
+}
+
+.support-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@keyframes profile-reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .doctor-row,
+  .support-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .doctor-row,
+  .support-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ─── Floating Actions ─── */
 .floating-actions {
   position: fixed;

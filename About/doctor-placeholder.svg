@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720" role="img" aria-labelledby="title desc">
+  <title id="title">Temporary dentist portrait placeholder</title>
+  <desc id="desc">A simple illustrated placeholder portrait for a dentist.</desc>
+  <rect width="640" height="720" fill="#dff5f6"/>
+  <circle cx="320" cy="230" r="118" fill="#8bc8ca"/>
+  <path d="M150 680c12-150 72-230 170-230s158 80 170 230" fill="#2a7f86"/>
+  <circle cx="278" cy="220" r="12" fill="#164e63"/>
+  <circle cx="362" cy="220" r="12" fill="#164e63"/>
+  <path d="M275 290c30 24 60 24 90 0" fill="none" stroke="#164e63" stroke-width="10" stroke-linecap="round"/>
+  <path d="M206 155c38-72 190-82 226 0" fill="none" stroke="#164e63" stroke-width="24" stroke-linecap="round"/>
+  <path d="M250 470h140v90H250z" fill="#fff"/>
+  <path d="M320 470v90" stroke="#b7dfe0" stroke-width="8"/>
+</svg>
