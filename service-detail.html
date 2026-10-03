@@ -269,6 +269,32 @@
           <a class="btn-secondary" href="rct-costs-in-meerut-delhi-ncr.html">Read RCT Cost Guide</a>
         `;
         container.appendChild(blogCard);
+
+        const caseSection = document.createElement('section');
+        caseSection.className = 'section';
+        caseSection.innerHTML = `
+          <div class="container">
+            <p class="badge">Root Canal Cases</p>
+            <h2>Painless RCT success story</h2>
+            <div class="case-studies-grid">
+              <article class="case-study-card">
+                <h3><a href="Blog/PainlessRCT/index.html">Case 4: Painless RCT — Acute Swelling Resolved</a></h3>
+                <p>A patient presented with severe facial swelling and intense discomfort. Urgent, painless root canal therapy and a protective final restoration resolved the infection and restored function.</p>
+                <div class="blog-photos">
+                  <figure class="case-photo">
+                    <img src="Blog/PainlessRCT/Before.jpg" alt="Before: facial swelling" loading="lazy" />
+                    <figcaption>Before</figcaption>
+                  </figure>
+                  <figure class="case-photo">
+                    <img src="Blog/PainlessRCT/After.jpg" alt="After: restored tooth" loading="lazy" />
+                    <figcaption>After</figcaption>
+                  </figure>
+                </div>
+              </article>
+            </div>
+          </div>
+        `;
+        document.body.insertBefore(caseSection, document.querySelector('.footer'));
       }
     }
   </script>
