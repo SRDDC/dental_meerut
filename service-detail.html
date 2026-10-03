@@ -203,6 +203,61 @@
       ogDescription.setAttribute('content', `Get expert ${selected.title.toLowerCase()} in Meerut at our dental clinic in Meerut.`);
     }
 
+    if (key === 'dental-implants') {
+      const footer = document.querySelector('.footer');
+      if (footer) {
+        const caseSection = document.createElement('section');
+        caseSection.className = 'section';
+        caseSection.innerHTML = `
+          <div class="container">
+            <p class="badge">Dental Implant Cases</p>
+            <h2>Implant success stories</h2>
+            <div class="case-studies-grid">
+              <article class="case-study-card">
+                <h3><a href="Blog/Full Mouth Implant/index.html">Case 2: Full Mouth Implant Rehabilitation</a></h3>
+                <p>This comprehensive case involved complete tooth replacement with advanced dental implants for a patient needing full mouth rehabilitation.</p>
+                <div class="blog-photos">
+                  <figure class="case-photo">
+                    <img src="Blog/Full Mouth Implant/Pre.jpeg" alt="Before: Missing teeth" loading="lazy" />
+                    <figcaption>Before</figcaption>
+                  </figure>
+                  <figure class="case-photo">
+                    <img src="Blog/Full Mouth Implant/Post.jpeg" alt="After: Full mouth implants" loading="lazy" />
+                    <figcaption>After</figcaption>
+                  </figure>
+                </div>
+              </article>
+              <article class="case-study-card">
+                <h3><a href="Blog/Full Mouth Implant 2/index.html">Case 3: Full Mouth Implant Rehabilitation (New)</a></h3>
+                <p>This full mouth rehabilitation paired strategic implant placement with bone grafting and final implant-supported crowns for a durable, natural-looking smile.</p>
+                <div class="blog-photos">
+                  <figure class="case-photo">
+                    <img src="Blog/Full Mouth Implant 2/WhatsApp Image 2026-06-13 at 5.35.11 PM.jpeg" alt="Pre-treatment case" loading="lazy" />
+                    <figcaption>Before</figcaption>
+                  </figure>
+                  <figure class="case-photo">
+                    <img src="Blog/Full Mouth Implant 2/WhatsApp Image 2026-06-13 at 5.35.13 PM (1).jpeg" alt="After: implant-supported crowns" loading="lazy" />
+                    <figcaption>After</figcaption>
+                  </figure>
+                </div>
+              </article>
+              <article class="case-study-card">
+                <h3><a href="Blog/Painless_Dental_Implant_Metal_Free_Zirconia_Crowns/index.html">Case 9: Is Dental Implant Painful?</a></h3>
+                <p>Many patients worry about pain before implant treatment, but modern anesthesia, precise planning, and painless techniques make implant care far more comfortable.</p>
+                <div class="blog-photos">
+                  <figure class="case-photo">
+                    <img src="Blog/Painless_Dental_Implant_Metal_Free_Zirconia_Crowns/BeforeAfterImage.jpg" alt="Before and after: painless dental implant with zirconia crown" loading="lazy" />
+                    <figcaption>Smile transformation</figcaption>
+                  </figure>
+                </div>
+              </article>
+            </div>
+          </div>
+        `;
+        document.body.insertBefore(caseSection, footer);
+      }
+    }
+
     if (key === 'root-canals') {
       const container = document.querySelector('.container.grid-2');
       if (container) {
