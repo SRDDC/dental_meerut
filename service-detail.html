@@ -203,59 +203,173 @@
       ogDescription.setAttribute('content', `Get expert ${selected.title.toLowerCase()} in Meerut at our dental clinic in Meerut.`);
     }
 
-    if (key === 'dental-implants') {
+    const appendCaseSection = (badgeText, headingText, cardHtml) => {
       const footer = document.querySelector('.footer');
-      if (footer) {
-        const caseSection = document.createElement('section');
-        caseSection.className = 'section';
-        caseSection.innerHTML = `
-          <div class="container">
-            <p class="badge">Dental Implant Cases</p>
-            <h2>Implant success stories</h2>
-            <div class="case-studies-grid">
-              <article class="case-study-card">
-                <h3><a href="Blog/Full Mouth Implant/index.html">Case 2: Full Mouth Implant Rehabilitation</a></h3>
-                <p>This comprehensive case involved complete tooth replacement with advanced dental implants for a patient needing full mouth rehabilitation.</p>
-                <div class="blog-photos">
-                  <figure class="case-photo">
-                    <img src="Blog/Full Mouth Implant/Pre.jpeg" alt="Before: Missing teeth" loading="lazy" />
-                    <figcaption>Before</figcaption>
-                  </figure>
-                  <figure class="case-photo">
-                    <img src="Blog/Full Mouth Implant/Post.jpeg" alt="After: Full mouth implants" loading="lazy" />
-                    <figcaption>After</figcaption>
-                  </figure>
-                </div>
-              </article>
-              <article class="case-study-card">
-                <h3><a href="Blog/Full Mouth Implant 2/index.html">Case 3: Full Mouth Implant Rehabilitation (New)</a></h3>
-                <p>This full mouth rehabilitation paired strategic implant placement with bone grafting and final implant-supported crowns for a durable, natural-looking smile.</p>
-                <div class="blog-photos">
-                  <figure class="case-photo">
-                    <img src="Blog/Full Mouth Implant 2/WhatsApp Image 2026-06-13 at 5.35.11 PM.jpeg" alt="Pre-treatment case" loading="lazy" />
-                    <figcaption>Before</figcaption>
-                  </figure>
-                  <figure class="case-photo">
-                    <img src="Blog/Full Mouth Implant 2/WhatsApp Image 2026-06-13 at 5.35.13 PM (1).jpeg" alt="After: implant-supported crowns" loading="lazy" />
-                    <figcaption>After</figcaption>
-                  </figure>
-                </div>
-              </article>
-              <article class="case-study-card">
-                <h3><a href="Blog/Painless_Dental_Implant_Metal_Free_Zirconia_Crowns/index.html">Case 9: Is Dental Implant Painful?</a></h3>
-                <p>Many patients worry about pain before implant treatment, but modern anesthesia, precise planning, and painless techniques make implant care far more comfortable.</p>
-                <div class="blog-photos">
-                  <figure class="case-photo">
-                    <img src="Blog/Painless_Dental_Implant_Metal_Free_Zirconia_Crowns/BeforeAfterImage.jpg" alt="Before and after: painless dental implant with zirconia crown" loading="lazy" />
-                    <figcaption>Smile transformation</figcaption>
-                  </figure>
-                </div>
-              </article>
+      if (!footer) return;
+
+      const caseSection = document.createElement('section');
+      caseSection.className = 'section';
+      caseSection.innerHTML = `
+        <div class="container">
+          <p class="badge">${badgeText}</p>
+          <h2>${headingText}</h2>
+          <div class="case-studies-grid">${cardHtml}</div>
+        </div>
+      `;
+      document.body.insertBefore(caseSection, footer);
+    };
+
+    if (key === 'dental-implants') {
+      appendCaseSection(
+        'Dental Implant Cases',
+        'Implant success stories',
+        `
+          <article class="case-study-card">
+            <h3><a href="Blog/Full Mouth Implant/index.html">Case 2: Full Mouth Implant Rehabilitation</a></h3>
+            <p>This comprehensive case involved complete tooth replacement with advanced dental implants for a patient needing full mouth rehabilitation.</p>
+            <div class="blog-photos">
+              <figure class="case-photo">
+                <img src="Blog/Full Mouth Implant/Pre.jpeg" alt="Before: Missing teeth" loading="lazy" />
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure class="case-photo">
+                <img src="Blog/Full Mouth Implant/Post.jpeg" alt="After: Full mouth implants" loading="lazy" />
+                <figcaption>After</figcaption>
+              </figure>
             </div>
-          </div>
-        `;
-        document.body.insertBefore(caseSection, footer);
-      }
+          </article>
+          <article class="case-study-card">
+            <h3><a href="Blog/Full Mouth Implant 2/index.html">Case 3: Full Mouth Implant Rehabilitation (New)</a></h3>
+            <p>This full mouth rehabilitation paired strategic implant placement with bone grafting and final implant-supported crowns for a durable, natural-looking smile.</p>
+            <div class="blog-photos">
+              <figure class="case-photo">
+                <img src="Blog/Full Mouth Implant 2/WhatsApp Image 2026-06-13 at 5.35.11 PM.jpeg" alt="Pre-treatment case" loading="lazy" />
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure class="case-photo">
+                <img src="Blog/Full Mouth Implant 2/WhatsApp Image 2026-06-13 at 5.35.13 PM (1).jpeg" alt="After: implant-supported crowns" loading="lazy" />
+                <figcaption>After</figcaption>
+              </figure>
+            </div>
+          </article>
+          <article class="case-study-card">
+            <h3><a href="Blog/Painless_Dental_Implant_Metal_Free_Zirconia_Crowns/index.html">Case 9: Is Dental Implant Painful?</a></h3>
+            <p>Many patients worry about pain before implant treatment, but modern anesthesia, precise planning, and painless techniques make implant care far more comfortable.</p>
+            <div class="blog-photos">
+              <figure class="case-photo">
+                <img src="Blog/Painless_Dental_Implant_Metal_Free_Zirconia_Crowns/BeforeAfterImage.jpg" alt="Before and after: painless dental implant with zirconia crown" loading="lazy" />
+                <figcaption>Smile transformation</figcaption>
+              </figure>
+            </div>
+          </article>
+        `
+      );
+    }
+
+    if (key === 'veneers') {
+      appendCaseSection(
+        'Veneer Cases',
+        'Smile-enhancing veneer outcomes',
+        `
+          <article class="case-study-card">
+            <h3><a href="Blog/midline-diastema/index.html">Case 1: Midline Diastema Closure with Veneers</a></h3>
+            <p>This case involved a visible midline diastema and the goal was a natural, symmetrical smile without bulky restorations.</p>
+            <div class="blog-photos">
+              <figure class="case-photo">
+                <img src="Blog/Pre.jpeg" alt="Before: Midline diastema" loading="lazy" />
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure class="case-photo">
+                <img src="Blog/Post.jpeg" alt="After: Veneer closure" loading="lazy" />
+                <figcaption>After</figcaption>
+              </figure>
+            </div>
+          </article>
+        `
+      );
+    }
+
+    if (key === 'smile-makeover') {
+      appendCaseSection(
+        'Smile Makeover Cases',
+        'Smile transformation highlights',
+        `
+          <article class="case-study-card">
+            <h3><a href="Blog/midline-diastema/index.html">Case 1: Midline Diastema Closure with Veneers</a></h3>
+            <p>A conservative veneer plan closed the visible midline gap and restored a balanced smile line with natural proportions.</p>
+            <div class="blog-photos">
+              <figure class="case-photo">
+                <img src="Blog/Pre.jpeg" alt="Before: Midline diastema" loading="lazy" />
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure class="case-photo">
+                <img src="Blog/Post.jpeg" alt="After: Veneer closure" loading="lazy" />
+                <figcaption>After</figcaption>
+              </figure>
+            </div>
+          </article>
+          <article class="case-study-card">
+            <h3><a href="Blog/DiscolourationCase/index.html">Case 8: Discolouration and Staining</a></h3>
+            <p>This smile-restoration case focused on improving tooth colour, texture, and brightness with a conservative cosmetic approach.</p>
+            <div class="blog-photos">
+              <figure class="case-photo">
+                <img src="Blog/Discoluration/DicolarationPre.jpg" alt="Before: tooth staining" loading="lazy" />
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure class="case-photo">
+                <img src="Blog/Discoluration/DiscolorationPost.jpg" alt="After: brighter smile" loading="lazy" />
+                <figcaption>After</figcaption>
+              </figure>
+            </div>
+          </article>
+        `
+      );
+    }
+
+    if (key === 'oral-maxillofacial-surgery') {
+      appendCaseSection(
+        'Oral Surgery Cases',
+        'Surgical and soft-tissue case highlights',
+        `
+          <article class="case-study-card">
+            <h3><a href="Blog/Neuroma/index.html">Case 5: Neuroma Case</a></h3>
+            <p>This case involved a persistent soft tissue concern that required careful clinical assessment and minimally traumatic surgical management.</p>
+            <div class="blog-photos">
+              <figure class="case-photo">
+                <img src="Blog/Neuroma/Initial.jpeg" alt="Neuroma case initial presentation" loading="lazy" />
+                <figcaption>Initial</figcaption>
+              </figure>
+              <figure class="case-photo">
+                <img src="Blog/Neuroma/Removed.jpeg" alt="Neuroma case after treatment" loading="lazy" />
+                <figcaption>After</figcaption>
+              </figure>
+            </div>
+          </article>
+        `
+      );
+    }
+
+    if (key === 'teeth-whitening') {
+      appendCaseSection(
+        'Teeth Whitening Cases',
+        'Brightness and stain correction outcomes',
+        `
+          <article class="case-study-card">
+            <h3><a href="Blog/DiscolourationCase/index.html">Case 8: Discolouration and Staining</a></h3>
+            <p>This case focused on improving visible staining and roughened tooth surfaces to improve brightness and overall smile appearance.</p>
+            <div class="blog-photos">
+              <figure class="case-photo">
+                <img src="Blog/Discoluration/DicolarationPre.jpg" alt="Before: stained teeth" loading="lazy" />
+                <figcaption>Before</figcaption>
+              </figure>
+              <figure class="case-photo">
+                <img src="Blog/Discoluration/DiscolorationPost.jpg" alt="After: brighter tooth shade" loading="lazy" />
+                <figcaption>After</figcaption>
+              </figure>
+            </div>
+          </article>
+        `
+      );
     }
 
     if (key === 'root-canals') {
@@ -270,31 +384,40 @@
         `;
         container.appendChild(blogCard);
 
-        const caseSection = document.createElement('section');
-        caseSection.className = 'section';
-        caseSection.innerHTML = `
-          <div class="container">
-            <p class="badge">Root Canal Cases</p>
-            <h2>Painless RCT success story</h2>
-            <div class="case-studies-grid">
-              <article class="case-study-card">
-                <h3><a href="Blog/PainlessRCT/index.html">Case 4: Painless RCT — Acute Swelling Resolved</a></h3>
-                <p>A patient presented with severe facial swelling and intense discomfort. Urgent, painless root canal therapy and a protective final restoration resolved the infection and restored function.</p>
-                <div class="blog-photos">
-                  <figure class="case-photo">
-                    <img src="Blog/PainlessRCT/Before.jpg" alt="Before: facial swelling" loading="lazy" />
-                    <figcaption>Before</figcaption>
-                  </figure>
-                  <figure class="case-photo">
-                    <img src="Blog/PainlessRCT/After.jpg" alt="After: restored tooth" loading="lazy" />
-                    <figcaption>After</figcaption>
-                  </figure>
-                </div>
-              </article>
-            </div>
-          </div>
-        `;
-        document.body.insertBefore(caseSection, document.querySelector('.footer'));
+        appendCaseSection(
+          'Root Canal Cases',
+          'Painless RCT and infection-resolution stories',
+          `
+            <article class="case-study-card">
+              <h3><a href="Blog/PainlessRCT/index.html">Case 4: Painless RCT — Acute Swelling Resolved</a></h3>
+              <p>A patient presented with severe facial swelling and intense discomfort. Urgent, painless root canal therapy and a protective final restoration resolved the infection and restored function.</p>
+              <div class="blog-photos">
+                <figure class="case-photo">
+                  <img src="Blog/PainlessRCT/Before.jpg" alt="Before: facial swelling" loading="lazy" />
+                  <figcaption>Before</figcaption>
+                </figure>
+                <figure class="case-photo">
+                  <img src="Blog/PainlessRCT/After.jpg" alt="After: restored tooth" loading="lazy" />
+                  <figcaption>After</figcaption>
+                </figure>
+              </div>
+            </article>
+            <article class="case-study-card">
+              <h3><a href="Blog/ExtraOralSinus(EOS)Case/index.html">Case 7: Extra Oral Sinus Formation (EOS)</a></h3>
+              <p>This case involved recurrent pain, swelling, and a draining facial sinus caused by deep infection. A non-surgical root canal approach helped eliminate the source and restore healing.</p>
+              <div class="blog-photos">
+                <figure class="case-photo">
+                  <img src="Blog/ExtraOralSinus(EOS)Case/EOS_Face-Pre.jpg" alt="Before: swelling and facial scar" loading="lazy" />
+                  <figcaption>Before</figcaption>
+                </figure>
+                <figure class="case-photo">
+                  <img src="Blog/ExtraOralSinus(EOS)Case/EOS-PostResolved.jpg" alt="After: healed sinus" loading="lazy" />
+                  <figcaption>After</figcaption>
+                </figure>
+              </div>
+            </article>
+          `
+        );
       }
     }
   </script>
